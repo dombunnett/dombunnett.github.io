@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
        <meta name="viewport" content="width=device-width, initial-scale=1">
-	    <meta name="description" content="Algebra 1">
+	    <meta name="description" content="Algebra 2">
 	    <meta name="author" content="Dominic Bunnett">
 	    <meta name="keywords" content="Dominic Bunnett, algebra">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -82,28 +82,63 @@ a:hover {
 
 
                 <div class="col-md-8" style="margin-top:1%; text-align:justify;">
-			<b>Algebra I, TU Berlin Winter 2023/24</b><br>
+			<b>Algebra II: Commutative Algebra, TU Berlin Summer 2024</b><br>
 			<img width="100%" height="auto" src="field_extensions.png" alt="">
 			<br><br><br>
-		    <p> Hier finden Sie Ressourcen für den Kurs Algebra I, der im Wintersemester 2023/24 an der TU Berlin unterrichtet wird. <br><br>
+			<p>
+			This course is the continuation of the Algebra I course given by Dr. Dirk Kussin at TU Berlin in WS 21/22.
+			</p><br><br>
+			<p>
+			The course Algebra I explained the basic notions of algebra:
+			groups, rings, fields, factor structures, and provided a fairly
+			detailed treatment of algebraic field extensions, culminating in
+			the beautiful Galois theory.
+			</p><br>
+			<p>
+			The main goal of Algebra II is to provide an introduction to 
+			commutative algebra. This is the branch of algebra that studies
+			commutative rings, their ideals, and modules over such rings. 
+			Important examples of commutative rings are 
+			rings of algebraic integers (which includes the ring of integers) 
+			and polynomial rings over fields and their factor rings.  
+			Both algebraic geometry and algebraic number theory build on
+			commutative algebra. In fact, commutative algebra provides the 
+			tools for local studies in algebraic geometry, much like multivariate 
+			calculus is the main tool for local studies in differential geometry.
 
-			    <br>
+			Probably the best entry to the subject is the following short, concise, 
+			and clearly written textbook:
+
+			Atiyah, M.F.; Macdonald, I.G.: Introduction to commutative algebra. 
+			Addison-Wesley Publishing Co, 1969 ix+128 pp.
+
+			The current plan is to follow this book quite closely.
+			However, we may complement this with some additional material concerning 
+			algorithms (Gröbner bases). 
+
+			Teaching assistant: Dominic Bunnett 
+
+
+			Additional suitable literature: 
+
+			Lang, Algebra, 3rd edition, Springer, 2002
+
+			Eisenbud, Commutative Algebra with a View Toward Algebraic Geometry, Springer, 1995
+
+			Matsumura, Commutative Algebra, Cambridge, 1989
+			</p>
+
+			<br>
                     
                     <h2 id="research">&#220bungsblatter</h2>
               
 			<ul>
-				<li><a href = "https://drive.google.com/file/d/1lyWt5Y_r9c4tW5Ly8_hS4ofVKtkrmBAO/view?usp=sharing"> Sheet 11</a></li>
-				<li><a href = "https://drive.google.com/file/d/15mFaV7czTuOW3zu07_-8eR0HMMUSyO1P/view?usp=sharing"> Sheet 13</a></li>
-				<li><a href = "https://drive.google.com/file/d/1wkReuWUGe02CetQPKzPwn8nRqky2jCc7/view?usp=sharing"> Sheet 14,</a> with correct proof of transitivey of separable extensions.</li>
-				<li><a href = "https://drive.google.com/file/d/10n78Qtp-ouBM575dFVXnmHEXsmedDkPK/view?usp=sharing"> Sheet 15</a></li>
-				<li><a href = "https://drive.google.com/file/d/1kHmg8V9BKoBGFL_8LtAmz1M7s75qRrA9/view?usp=sharing"> Bonus Uebung</a></li>
+				<li></li>
 			</ul>
 		<h2 id="research">Useful links</h2>
-              
 			<ul>
 				<li><a href ="https://isis.tu-berlin.de/course/view.php?id=36405">Die offizielle Webseite</a></li>
 				<li><a href ="https://kconrad.math.uconn.edu/blurbs/">Notes of Keith Conrad</a></li>
-				<li><a href = "https://www.youtube.com/playlist?list=PLEB-CyZh5_JxAYCM5mltjlHYqzIf6ieIw">Some further exercises</a></li>
 			</ul>
                     
                 </div>
