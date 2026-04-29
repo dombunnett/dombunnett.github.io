@@ -2,210 +2,177 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-       <meta name="viewport" content="width=device-width, initial-scale=1">
-	    <meta name="description" content="Dominic Bunnett">
-	    <meta name="author" content="Dominic Bunnett">
-	    <meta name="keywords" content="Dominic Bunnett, math">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-        <link href='https://fonts.googleapis.com/css?family=Inconsolata:700' rel='stylesheet' type='text/css'>
-	<title>Dominic Bunnett</title>
-	<style>
-.myDiv {
-  background-color: #2F4F4F;
-  color: white;
-  text-align: center;
-  word-spacing: 60px;
-}
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Dominic Bunnett">
+        <meta name="author" content="Dominic Bunnett">
+        <meta name="keywords" content="Dominic Bunnett, math">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+        <link href='https://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
+        <title>Dominic Bunnett</title>
+        <style>
 body {
-	background-color: lightblue;
+    background-color: #f8f8f8;
+    font-family: 'Inconsolata', monospace;
+    font-size: 15px;
+    color: #222;
 }
+
+.myDiv {
+    background-color: #2F4F4F;
+    color: white;
+    text-align: center;
+}
+
+.nav-inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 48px;
+    padding: 12px 0;
+}
+
 a:link {
-  color: darkblue;
-  background-color: transparent;
-  text-decoration: none;
+    color: darkblue;
+    background-color: transparent;
+    text-decoration: none;
 }
 
 a:visited {
-  color: white;
-  background-color: transparent;
-  text-decoration: none;
+    color: #666;
+    background-color: transparent;
+    text-decoration: none;
 }
 
 a:hover {
-  color: yellow;
-  background-color: transparent;
-  text-decoration: underline;
+    color: yellow;
+    background-color: transparent;
+    text-decoration: underline;
 }
-</style>
+
+.myDiv a:link,
+.myDiv a:visited {
+    color: white;
+}
+
+.myDiv a:hover {
+    color: yellow;
+}
+
+h2 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 6px;
+    margin-bottom: 14px;
+}
+
+h4 {
+    font-size: 1.05rem;
+    font-weight: 700;
+}
+
+.left-col {
+    padding-right: 32px;
+}
+        </style>
     </head>
     <body>
 
-
         <!-- Navigation -->
-	<nav class="myDiv"> 
-		<!-- "navbar navbar-inverse"> -->
-            <div class="myDiv">
-                    <a href="#">Home</a>
-                    <a href="#research">Research</a> 
-                    <a href="#teaching">Teaching</a> 
-                    <a href="#writing">Writing</a>
+        <nav class="myDiv">
+            <div class="nav-inner">
+                <a href="#">Home</a>
+                <a href="#research">Research</a>
+                <a href="teaching.html">Teaching</a>
+                <a href="writing.html">Writing</a>
             </div>
         </nav>
-
 
         <!-- Page Content -->
         <div class="container">
 
             <div class="row">
 
-                <div class="col-md-4"  border="white 20px">
-			<img width="65%" height="auto" src="dom.jpg" alt="">
-			<div style="font-family: 'Inconsolata', sans-serif; font-size: 32px;"><b>Dominic Bunnett</b></div><br>
+                <div class="col-md-4 left-col">
+                    <img width="65%" height="auto" src="dom.jpg" alt="" style="margin-top: 24px;">
+                    <div style="font-size: 32px; font-weight: bold; margin-top: 10px;"><b>Dominic Bunnett</b></div><br>
 
                     <p><b>Email: bunnett at math.tu-berlin.de</b><br>
                     <p>
-                        <a href="http://www.tu.berlin/">
-                            TU Berlin
-                        </a><br>
-                        <a href="http://www.math.tu-berlin.de/">
-                            Institute of Mathematics
-                        </a><br>
-                        
+                        <a href="http://www.tu.berlin/">TU Berlin</a><br>
+                        <a href="http://www.math.tu-berlin.de/">Institute of Mathematics</a><br>
                         Stra&szlig;e des 17. Juni 136,<br>
                         10623 Berlin, Germany<br>
                         <br>
-                        Office: MA 319
-			<br>
-			<a href="cv/cv.pdf">CV</a>
-		    </p><br><br><br>   
-			<h5>News</h5>
-			I made this to save me time in the morning: <a href="https://dombunnett.github.io/arXiv-reader.html">arXiv-reader.</a><br><br>
-			January - June 2024: I was at the University of Cambridge for the thematic semester <a href = "https://www.newton.ac.uk/event/emg/">New equivariant methods in algebraic and differential geometry</a>.<br><br>
-			January 2024: Mini-course on Moduli spaces and group actions at <a href="https://sites.google.com/view/bunnett/equivariant-methods-in-geometry-ibadan-2023">Workshop</a> "Equivariant methods in geometry" at the University of Ibadan<br><br>
-			August 2023: Guest Lecturer at Makerere University, Kampala. Graduate seminar on "Advanced topics in Commutative Algebra and Geometry"<br><br>
-			August 2023: New <a href="https://www.theleftberlin.com/the-corporate-battering-ram-against-state-sovereignty/">article</a> on Investor-State Dispute Settlement system.<br><br>
-                </div> 
+                        Office: MA 319<br>
+                        <a href="cv/cv.pdf">CV</a>
+                    </p><br><br><br>
+                    <h5>News</h5>
+                    I made this to save me time in the morning: <a href="https://dombunnett.github.io/arXiv-reader.html">arXiv-reader.</a><br><br>
+                    January - June 2024: I was at the University of Cambridge for the thematic semester <a href="https://www.newton.ac.uk/event/emg/">New equivariant methods in algebraic and differential geometry</a>.<br><br>
+                    January 2024: Mini-course on Moduli spaces and group actions at <a href="https://sites.google.com/view/bunnett/equivariant-methods-in-geometry-ibadan-2023">Workshop</a> "Equivariant methods in geometry" at the University of Ibadan<br><br>
+                    August 2023: Guest Lecturer at Makerere University, Kampala. Graduate seminar on "Advanced topics in Commutative Algebra and Geometry"<br><br>
+                    August 2023: New <a href="https://www.theleftberlin.com/the-corporate-battering-ram-against-state-sovereignty/">article</a> on Investor-State Dispute Settlement system.<br><br>
+                </div>
 
 
-                <div class="col-md-8" style="margin-top:1%; text-align:justify;">   
-			<br><br><br>
-		    <p> I'm a geometer, working at the interface of algebraic and discrete geometry. I work in moduli theory and like computational problems. <br><br>
-			In 2024, I was a visiting scholar at the Isaac Newton Institute, University of Cambridge.<br><br>
-		        Otherwise, I'm a postdoc in the research group Algorithmic Algebra of <a href ="https://www.tu.berlin/act/team/prof-dr-peter-buergisser">Prof. Peter Bürgisser</a>, before that, I was a lecturer at Makerere University, Kampala.<br><br>
-			I did my Ph.D under the supervision of <a href="https://www.math.ru.nl/~vhoskins/">Prof. Victoria Hoskins</a> at FU Berlin.<br><br>
-                    
-                   
-			    <br><br><br><br><br><br>
-                    
+                <div class="col-md-8" style="margin-top:1%; text-align:justify;">
+                    <br><br><br>
+                    <p>I'm a geometer, working at the interface of algebraic and discrete geometry. I work in moduli theory and like computational problems.<br><br>
+                    In 2024, I was a visiting scholar at the Isaac Newton Institute, University of Cambridge.<br><br>
+                    Otherwise, I'm a postdoc in the research group Algorithmic Algebra of <a href="https://www.tu.berlin/act/team/prof-dr-peter-buergisser">Prof. Peter Bürgisser</a>, before that, I was a lecturer at Makerere University, Kampala.<br><br>
+                    I did my Ph.D under the supervision of <a href="https://www.math.ru.nl/~vhoskins/">Prof. Victoria Hoskins</a> at FU Berlin.<br><br>
+
+                    <br><br><br><br><br><br>
+
                     <h2 id="research">Mathematical research</h2>
 
                     <h4>Preprints</h4>
-
                     <ul>
-                        <li class="paper" words="add, your, keywords, here">
-                            <a href="https://arxiv.org/abs/2510.05076">Embeddings of weighted projective spaces</a>
-                            <br>
-			    with Praise Adeyemo and Fabián Levicán (submitted)
+                        <li class="paper">
+                            <a href="https://arxiv.org/abs/2510.05076">Embeddings of weighted projective spaces</a><br>
+                            with Praise Adeyemo and Fabián Levicán (submitted)
                         </li>
-                        <li class="paper" words="add, your, keywords, here">
-                            <a href="https://arxiv.org/abs/2102.04995">Moduli of Bridgeland semistable holomorphic triples</a>
-                            <br>
-			    with Alejandra Rincon-Hidalgo (submitted)
+                        <li class="paper">
+                            <a href="https://arxiv.org/abs/2102.04995">Moduli of Bridgeland semistable holomorphic triples</a><br>
+                            with Alejandra Rincon-Hidalgo (submitted)
                         </li>
                     </ul>
 
                     <h4>Journal publications</h4>
                     <ul>
-			<li class="paper" words="add, your, keywords, here">
-                            <a href="https://arxiv.org/abs/1906.00272">On the moduli of hypersurfaces in toric orbifolds</a>
-                            <br>
-			    To appear in the Proceedings of the Edinburgh Mathematical Society.
+                        <li class="paper">
+                            <a href="https://doi.org/10.1017/S0013091524000166">On the moduli of hypersurfaces in toric orbifolds</a> (<a href="https://arxiv.org/abs/1906.00272">arxiv</a>)<br>
+                            <i>Proceedings of the Edinburgh Mathematical Society</i>, 67(2), 577&ndash;616, 2024.
                         </li>
-			<li class="paper" words="add, your, keywords, here">
-                            <a href="https://dl.acm.org/doi/abs/10.1145/3597066.3597093">
-				    Generalised Cone Complexes and tropical moduli in polymake
-                                </a>
-                            <br>
-                            with Michael Joswig and Julian Pfeifle, <i>ISSAC '23: Proceedings of the 2023 International Symposium on Symbolic and Algebraic Computation,</i> 100–-106, 2023.
+                        <li class="paper">
+                            <a href="https://dl.acm.org/doi/abs/10.1145/3597066.3597093">Generalised Cone Complexes and tropical moduli in polymake</a><br>
+                            with Michael Joswig and Julian Pfeifle, <i>ISSAC '23: Proceedings of the 2023 International Symposium on Symbolic and Algebraic Computation,</i> 100&ndash;106, 2023.
                         </li>
-			    
-                         <li class="paper" words="add, your, keywords, here">
-                            <a href="https://lematematiche.dmi.unict.it/index.php/lematematiche/article/view/1997">
-				    Determinantal Representations of the cubic discriminant
-                                </a>
-                            (<a href="https://arxiv.org/abs/1909.05579">arxiv</a>)
-                            <br>
-                            with Hanieh Keneshlou, <i>Le Matematiche</i>, 75(2), 489--505, 2020.
+                        <li class="paper">
+                            <a href="https://lematematiche.dmi.unict.it/index.php/lematematiche/article/view/1997">Determinantal Representations of the cubic discriminant</a>
+                            (<a href="https://arxiv.org/abs/1909.05579">arxiv</a>)<br>
+                            with Hanieh Keneshlou, <i>Le Matematiche</i>, 75(2), 489&ndash;505, 2020.
                         </li>
-                        
                     </ul>
-                    
+
                     <h4>Software</h4>
                     <ul>
-                        <li class="paper" words="add, your, keywords, here">
-                            <a href="https://github.com/micjoswig/TropicalModuliData/tree/main/2023-Stacky_fans_and_tropical_moduli_in_polymake">
-				    Tropical Moduli in polymake, <i>polymake</i>
-                            </a>
-                            <br>
+                        <li class="paper">
+                            <a href="https://github.com/micjoswig/TropicalModuliData/tree/main/2023-Stacky_fans_and_tropical_moduli_in_polymake">Tropical Moduli in polymake, <i>polymake</i></a><br>
                             with Michael Joswig and Julian Pfeifle.
-			</li>      
-
+                        </li>
                     </ul>
-
 
                     <h4>Thesis</h4>
-				<a href="https://refubium.fu-berlin.de/handle/fub188/27333">
-			    Moduli of hypersurfaces in toric orbifolds 
-                            </a>
-                            <br>
-                            PhD thesis, <i>Institute of Mathematics, Free University Berlin</i>, 2019
-			    <br><br><br><br><br><br>
-
-
-
-
-                    <h2 id="teaching">Teaching</h2>
-		    <p>Here are the courses I am teaching / recently taught</p>
-                    <ul>
-			    <li>Summer semester 2025: <a href="https://dombunnett.github.io/teaching/schemes.html">Schemes Reading Course, TU Berlin</a></li>
-			    <li>Summer semester 2024: <a href="https://dombunnett.github.io/teaching/algebra2.html">Algebra II (Commutative Algebra), TU Berlin</a>
-			    <li>Winter semester 2023/24: <a href ="https://sites.google.com/view/bunnett/algebraic-geometry-2023">Algebraic Geometry Remote Learning</a> </li>
-			    <li>Winter semester 2023/24: <a href="https://dombunnett.github.io/teaching/algebra1.html">Algebra I (Fields and Galois Theory), TU Berlin</a>
-			    </li>
-                         <li>
-                            Summer semester 2023: <a href="https://isis.tu-berlin.de/course/view.php?id=28770">Calculus I and Linear Algebra for Engineers, TU Berlin</a> 
-                        </li>
-			<li>
-				Summer semester 2022: <a href="https://sites.google.com/view/bunnett/algebraic-geometry-2022">Algebraic Geometry</a>, Makerere Univeristy
-			</li>
-			<li>
-				Winter semester 2021/22: Algebra I (Fields and Galois Theory), TU Berlin
-			</li>
-			<li>
-				Winer semester 2021/22: <a href="https://sites.google.com/a/aims.edu.gh/introduction-to-algebraic-geometry/">Computational Intro to Algebraic Geometry, AIMS Ghana</a>
-                    </ul>
-
-			    <br><br><br><br><br><br>
-
-
-		<h2 id="writing">Writing</h2>
-
-		<ul>
-			<li><a href="https://www.theleftberlin.com/the-corporate-battering-ram-against-state-sovereignty/"><b>The Corporate Battering Ram Against State Sovereignty</b></a> <i>The Left Berlin, 2023</i></li>
-			<li><a href="https://www.theleftberlin.com/imperial-legacy-of-labour-practices-in-the-gulf-states/"><b>Imperial Legacy of Labour practices in the Gulf states</b></a> <i>The Left Berlin, 2022</i></li>
-
-			<li><a href="https://www.theleftberlin.com/commodity-markets-and-the-boiling-point-of-societies/"><b>Commodity Prices and the Boiling Point of Societies</b>: Will inflation lead to social upheaval?</a><i>The Left Berlin, 2022</i></li>
-
-			    <br><br><br><br><br><br>
-			    <p> Thanks! </p>
+                    <a href="https://refubium.fu-berlin.de/handle/fub188/27333">Moduli of hypersurfaces in toric orbifolds</a><br>
+                    PhD thesis, <i>Institute of Mathematics, Free University Berlin</i>, 2019
+                    <br><br><br><br><br><br>
                 </div>
             </div>
 
         </div>
     </body>
-
 </html>
-
-
