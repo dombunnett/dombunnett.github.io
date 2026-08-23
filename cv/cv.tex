@@ -1,135 +1,378 @@
-\documentclass[10.5pt]{article}
-\linespread{1.1}
+\documentclass[10pt]{article}
+\linespread{1.05}
 
-\usepackage{amsfonts,amssymb,amsmath,color,amsthm,abstract}
-\usepackage[ps,all,arc,rotate]{xy}
-\usepackage[lmargin=1in,rmargin=1in,tmargin=1in,bmargin=1in]{geometry}
-\usepackage{fancyhdr}
-\usepackage{amscd}
-\usepackage{cite}
-\usepackage{tikz-cd}
-\usepackage[toc,page]{appendix}
-\usepackage{hyperref}
-\usepackage{tikz}  
+\usepackage{cmap}      % makes the PDF text copy/paste- and search-able
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsfonts,amssymb,amsmath}
+\usepackage[lmargin=1in,rmargin=1in,tmargin=0.9in,bmargin=0.9in]{geometry}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
 
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\sloppy % prefer loose spacing over lines running into the margin
 
+% --- helper macros -----------------------------------------------------
+% A section heading preceded by a full-width rule.
+\newcommand{\cvsection}[1]{%
+  \par\vspace{0.24cm}%
+  \noindent\rule{\textwidth}{0.4pt}%
+  \par\vspace{0.12cm}%
+  \noindent\textbf{\large #1}%
+  \par\vspace{0.12cm}%
+}
+% A bulleted list with tight spacing, used for every section body.
+\newenvironment{cvlist}%
+  {\begin{list}{$\bullet$}{%
+     \setlength{\leftmargin}{1.1em}\setlength{\labelwidth}{0.8em}%
+     \setlength{\itemsep}{0.12cm}\setlength{\parsep}{0pt}%
+     \setlength{\topsep}{0pt}\setlength{\partopsep}{0pt}}}%
+  {\end{list}}
+% -----------------------------------------------------------------------
 
 \begin{document}
-\begin{minipage}{0.5\textwidth}
-\noindent{\Large\textbf{Dominic Bunnett}}\\ \\
-\end{minipage}
-\begin{minipage}{0.5\textwidth}
-\noindent Sekretariat MA 3-2\\
-Institut f\"ur  Mathematik\\
-Straße des 17. Juni 136\\
+
+%% ======================= HEADER =======================
+\begin{minipage}[t]{0.48\textwidth}
+\vspace{0pt}
+{\Large\textbf{Dominic Bunnett}}\\[0.30cm]
+\href{https://dombunnett.github.io}{\em dombunnett.github.io}\\
+ORCID: \href{https://orcid.org/0009-0007-6921-3177}{\em 0009-0007-6921-3177}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\vspace{0pt}
+Sekretariat MA 3-2\\
+Institut f\"ur Mathematik\\
+Technische Universit\"at Berlin\\
+Stra\ss{}e des 17. Juni 136\\
 10623 Berlin, Germany\\
 Email: {\em bunnett@math.tu-berlin.de}
-%Email : {\em dominic} -dot- {\em bunnett} -at - {\em gmail} -dot- {\em com}\\
-%Email: {\em bunnett} -at - {\em math} -dot- {\em tu-berlin} -dot- {\em de}\\
 \end{minipage}
 
+\vspace{0.35cm}
 
+%% ======================= RESEARCH INTERESTS =======================
+\cvsection{Research interests}
+Moduli theory and geometric invariant theory, at the interface of algebraic and
+discrete geometry, with an emphasis on computational and algorithmic problems.
 
-\vspace{0.5cm}
-\noindent\rule{17cm}{0.4pt}\\
-\textbf{\large Education}
-\\
-\begin{itemize}
-\begin{minipage}{0.5\textwidth}
-\item {\bf Freie Universit\"at Berlin}\\
+%% ======================= EDUCATION =======================
+\cvsection{Education}
+\begin{cvlist}
+\item {\bf Freie Universit\"at Berlin} \quad October 2015 -- July 2019\\
 {\em Doctor of Philosophy in Mathematics}\\
-October 2015-July 2019 .\\
-Thesis: Moduli of hypersurfaces in toric \\orbifolds \\ Advisor: Prof. Victoria Hoskins.
-\end{minipage}
-\begin{minipage}{0.5\textwidth}
-\item {\bf University of Warwick}\\ BSc and MMath,  2011-2015, $1^{st}$ class.\\
-Thesis: Hodge theory and the Torelli theorem \\for curves\\
-Advisor: Prof. Miles Reid.
-\end{minipage}
+Thesis: \href{https://refubium.fu-berlin.de/handle/fub188/27333}{Moduli of hypersurfaces in toric orbifolds}\\
+Advisor: Prof.\ Victoria Hoskins
+\item {\bf University of Warwick} \quad 2011 -- 2015\\
+{\em BSc and MMath}, $1^{\text{st}}$ class\\
+Thesis: Hodge theory and the Torelli theorem for curves\\
+Advisor: Prof.\ Miles Reid
+\end{cvlist}
 
-
-\end{itemize}
-\noindent\rule{17cm}{0.4pt}
-
-\noindent\textbf{\large Positions held}\\ \\
-$\bullet \,$ {\bf Technische Universit\"at Berlin} \quad  October 2021 - Current\\
-Postdoc\\ 
-Mentor: Peter B\"urgisser\\ \\
-$\bullet \,$ {\bf Makerere University Kampala} \quad April 2022 - January 2023 \\
-Lecturer\\ \\
-$\bullet \,$ {\bf Technische Universit\"at Berlin} \quad  August 2019 - May 2021\\
-Postdoc in Einstein Fellowship\\ 
-Mentors: Michael Joswig and Bernd Sturmfels\\ \\
-%$\bullet \,$ {\bf Technische Universit\"at Berlin} \quad August 2019 - September 2019\\
-%Scholarship of the Einstein Fellowship\\
-%Mentor: Bernd Sturmfels\\ \\
-$\bullet \,$ {\bf University of Oxford} \quad April - June 2019\\
-Visiting Researcher\\
-Visiting: Frances Kirwan\\ \\
-$\bullet \,$ {\bf Freie Universit\"at Berlin} \quad September 2015 - March 2019\\
+%% ======================= POSITIONS =======================
+\cvsection{Positions held}
+\begin{cvlist}
+\item {\bf Technische Universit\"at Berlin} \quad October 2021 -- present\\
+Postdoc, research group Algorithmic Algebra\\
+Mentor: Peter B\"urgisser
+\item {\bf The Open University, UK} \quad September 2024 -- present\\
+Associate Lecturer, {\em Applied Computational Mathematics}
+% TODO: add the OU module code (e.g. MST3xx) if you want it, and confirm
+% whether the contract end in October 2026 should be shown as an end date.
+\item {\bf Makerere University, Kampala} \quad April 2022 -- January 2023\\
+Lecturer
+\item {\bf Technische Universit\"at Berlin} \quad August 2019 -- May 2021\\
+Postdoc within the Einstein Visiting Fellowship of Bernd Sturmfels
+(Einstein Foundation Berlin); initially as a Stipendiat, subsequently employed\\
+Mentors: Michael Joswig and Bernd Sturmfels
+\item {\bf University of Oxford} \quad April -- June 2019\\
+Visiting Researcher, hosted by Frances Kirwan
+\item {\bf Freie Universit\"at Berlin} \quad September 2015 -- March 2019\\
 Doktorand / Wissenschaftlicher Mitarbeiter\\
-Advisor: Victoria Hoskins\\
+Advisor: Victoria Hoskins
+\end{cvlist}
 
-\noindent\rule{17cm}{0.4pt}\\
-\noindent\textbf{Papers}\\
-$\bullet \,$ On the moduli of hypersurfaces in toric orbifolds. Proceedings of the Edinburgh Mathematical Society. 2024; 67(2): 577-616.\\
-$\bullet \,$ Determinantal representations of the cubic discriminant \em - joint with Hanieh Keneshlou. \em  Le Matematiche, Vol. 75, 2020.\\
-$\bullet \,$ Generalised cone complexes and tropical moduli in polymake. {\em joint with Michael Joswig and  Julian Pfeifle.}  In Proceedings of the 2023 International Symposium on Symbolic and Algebraic Computation (ISSAC '23). Association for Computing Machinery, New York, NY, USA, 100–106.\\
+%% ======================= PUBLICATIONS =======================
+\cvsection{Publications}
+\enlargethispage{-2\baselineskip} % keep the last entry off the page break
+\begin{cvlist}
+\item On the moduli of hypersurfaces in toric orbifolds.
+{\em Proceedings of the Edinburgh Mathematical Society}, 67(2):577--616, 2024.
+\href{https://doi.org/10.1017/S0013091524000166}{doi:10.1017/S0013091524000166},
+\href{https://arxiv.org/abs/1906.00272}{arXiv:1906.00272}
+\item Generalised cone complexes and tropical moduli in polymake.
+{\em Joint with Michael Joswig and Julian Pfeifle.}
+In {\em Proceedings of the 2023 International Symposium on Symbolic and
+Algebraic Computation} (ISSAC '23), pages 100--106. ACM, New York, 2023.
+\href{https://dl.acm.org/doi/abs/10.1145/3597066.3597093}{doi:10.1145/3597066.3597093}
+\item Determinantal representations of the cubic discriminant.
+{\em Joint with Hanieh Keneshlou.}
+{\em Le Matematiche}, 75(2):489--505, 2020.
+\href{https://lematematiche.dmi.unict.it/index.php/lematematiche/article/view/1997}{journal},
+\href{https://arxiv.org/abs/1909.05579}{arXiv:1909.05579}
+\end{cvlist}
 
-\noindent\textbf{Preprints}\\
-$\bullet \,$ Moduli of Bridgeland semistable triples {\em joint with Alejandra Rinco-Hidalgo.}\\
-$\bullet \,$ Embeddings of weighted projective spaces \em joint with Praise Adeyemo and Fabi\'an Levic\'an-Santib\'a\~nez. \em \href{https://arxiv.org/abs/2510.05076}{arXiv:2510.05076}\\
-%$\bullet \,$ Projective moduli of weighted hypersurfaces \em joint with Josh Jackson. \em (in preparation)\\
+%% ======================= PREPRINTS =======================
+\cvsection{Preprints}
+\begin{cvlist}
+\item Embeddings of weighted projective spaces.
+{\em Joint with Praise Adeyemo and Fabi\'an Levic\'an-Santib\'a\~nez.}
+\href{https://arxiv.org/abs/2510.05076}{arXiv:2510.05076} (submitted)
+\item Moduli of Bridgeland semistable holomorphic triples.
+{\em Joint with Alejandra Rinc\'on-Hidalgo.}
+\href{https://arxiv.org/abs/2102.04995}{arXiv:2102.04995} (submitted)
+\end{cvlist}
 
-\noindent\rule{17cm}{0.4pt}\\
-\noindent\textbf{Research Visits}\\
-$\bullet \,$ Isaac Newton Institute, \emph{New Equivariant Methods in Geometry}, January-June 2024\\
-$\bullet \,$ AIMS Rwanda, {\em visiting} Jan Hazla, January 2023\\
-$\bullet \,$ Essex Univeristy, Colchester, {\em visiting} Jesus Martinez Garcia, April 2022\\
-$\bullet \,$ International Centre of Theoretical Physics, Trieste, {\em visiting} Alejandra Rincon, March 2022\\
-$\bullet \,$ University of Oxford,, {\em visiting} Praise Adeyemo and Balázs Szendrői, January 2022 \\
-$\bullet \,$ Mathematisches Forschungsinstitut Oberwolfach, Reseach in Pairs, September 2021\\
-$\bullet \,$ AIMS Ghana, Guest Lecturer: Introduction to algebraic geometry, Winter Semester 2020\\
-%$\bullet \,$ University of Oxford, {\em visiting} Frances Kirwan, April - June 2019\\
-$\bullet \,$ International Centre of Theoretical Physics, Trieste, {\em visiting} Tarig Abdelgadir, January 2019\\
+%% ======================= IN PREPARATION =======================
+\cvsection{In preparation}
+\begin{cvlist}
+\item Finiteness of automorphisms via Bott vanishing.
+{\em Joint with Caroline Namanya.} (to appear on the arXiv, September 2026)
+\item K-moduli of exceptional del Pezzo hypersurfaces.
+{\em Joint with Josh Jackson, Jes\'us Mart\'inez-Garc\'ia and Charlotte Satchwell.}
+\item Geometry of moduli stacks of hypersurfaces. {\em Joint with Josh Jackson.}
+\item Hilbert--Mumford criteria for hypersurfaces.
+\end{cvlist}
 
+%% ======================= AWARDS =======================
+\cvsection{Awards and competitive research programmes}
+\begin{cvlist}
+\item {\bf Research in Teams}, Erwin Schr\"odinger International Institute for
+Mathematics and Physics (ESI), Vienna, May -- June 2025.\\
+Project: {\em Projective geometry, combinatorics and representation theory from
+polytopes}, with Praise Adeyemo, Livia Campo and Bal\'azs Szendr\H{o}i.
+\item {\bf Research in Pairs}, Mathematisches Forschungsinstitut Oberwolfach,
+2021.\\
+Awarded jointly with Alejandra Rinc\'on-Hidalgo.
+% TODO: confirm exact dates (CV said Sept 2021, your old TU page said June 2021)
+% and add the official project title from MFO Annual Report 2021, p.98.
+\item {\bf Clay Mathematics Institute}, full funding for the workshop
+{\em Equivariant methods in geometry}, University of Ibadan, 2024.
+\item {\bf MATH+ travel grants}, for research and teaching visits to Makerere
+University and AIMS Ghana.
+\item {\bf International Centre for Theoretical Physics}, funding for research
+visits to Trieste (2019, 2022) and for the EAUMP--ICTP summer school,
+University of Dar-es-Salaam, 2018.
+\end{cvlist}
 
-\noindent\rule{17cm}{0.4pt}\\
-\noindent\textbf{Software} - Available at \url{github.com/dombunnett}\\
-$\bullet \,$ Reduced submodules of finite dimensional polynomial modules, \texttt{python}\\
-$\bullet \,$ Determinantal representations of the cubic discriminant, \texttt{M2}\\
-$\bullet \,$ Automorphism group of a projective toric orbifold, \texttt{polymake}\\
-$\bullet \,$ Non-normal simplicies and weighted projective spaces, \texttt{polymake}\\
+%% ======================= TALKS =======================
+\cvsection{Invited talks}
+\begin{cvlist}
+\item \href{https://www.newton.ac.uk/event/ggiw02/}{AGGITatE 2026}, workshop of the
+Isaac Newton Institute satellite programme {\em Algebraic Groups, Geometry,
+Invariants and Related Topics}, University of Essex, July 2026.\\
+\emph{Finite automorphisms of toric orbifold hypersurfaces.}
+\item \emph{Embeddings of weighted projective spaces and rectangular simplices.}
+Discrete Mathematics / Geometry seminar, TU Berlin, November 2025.
+\item \emph{Embedding weighted projective spaces.}
+\href{https://homepage.univie.ac.at/balazs.szendroi/?page_id=783}{Workshop in Algebraic Geometry},
+Erwin Schr\"odinger International Institute for Mathematics and Physics,
+Vienna, 2025.
+% TODO: month, if you want it (the ESI stay ran 17 May - 25 June 2025)
+\item \emph{Families of hypersurfaces from polytopes.} Conference
+\href{https://icms.ac.uk/activities/workshop/algebra-and-geometry-from-africa/}{\em Algebra and Geometry from Africa},
+ICMS, Edinburgh, May 2025.
+\item \emph{The Frobenius problem, simplices and moduli spaces.}
+Mathematics and Statistics Colloquium, The Open University, February 2025.
+\item \href{https://www.youtube.com/watch?v=7kdnNRKsQLM}{\em Moduli of coverings branched along a hypersurface.}
+Programme seminar, {\em New Equivariant Methods in Algebraic and Differential
+Geometry}, Isaac Newton Institute, Cambridge, July 2024.
+\item \emph{Building collaborations with Africa.} Symposium
+\href{https://ias.uva.nl/content/events/2024/06/africa-symposium.html}{\em Building partnerships with institutions and researchers in Africa},
+Institute for Advanced Study, University of Amsterdam, June 2024.
+\item \emph{Geometry of some moduli spaces of hypersurfaces.}
+\href{https://cow.alggeo.xyz/cow2023}{COW Seminar}, University of Bath, March 2024.
+\item \emph{Moduli spaces of hypersurfaces and their topology.}
+\href{https://researchseminars.org/talk/EssexMaths/97/}{Mathematics Essex Seminar Series},
+University of Essex, December 2023.
+\item \emph{Stacky fans and tropical moduli in polymake.}
+\href{https://www.issac-conference.org/2023/program.php}{ISSAC 2023},
+Troms\o, Norway, July 2023.
+\item \emph{Moduli spaces of weighted hypersurfaces.}
+\href{https://www.math.ru.nl/geometryseminar/}{Geometry Seminar},
+Radboud University Nijmegen, March 2023.
+\item \emph{Moduli of Bridgeland stable triples.} International Centre for
+Theoretical Physics, Trieste, March 2022.
+\item \emph{Projective moduli of semistable hypersurfaces.}
+\href{https://mathematik.univie.ac.at/en/research/seminars/geometry-and-topology-seminar/}{Geometry and Topology Seminar},
+Universit\"at Wien, January 2023.
+\item \href{https://www.youtube.com/watch?v=5IlL8cVqH2U}{\em Normal simplices and moduli of weighted hypersurfaces.}
+\href{https://sites.google.com/view/africa-math-seminar/home}{African Mathematics Seminar}, April 2021.
+\item \emph{polymake introduction.}
+\href{https://www.mis.mpg.de/calendar/conferences/2020/polymake2020}{11th polymake Conference and Developer Meeting},
+MPI for Mathematics in the Sciences, Leipzig, January 2020.
+\item \emph{What are algebraic curves and their tropical friends?}
+\href{https://whatisseminar.xyz/talks.html}{``What is\ldots?'' Seminar},
+Berlin Mathematical School, Urania Berlin, November 2019.
+{\em Joint with Marta Panizzut.}
+\item \emph{What is $M_{g,n}$?}
+\href{https://whatisseminar.xyz/talks.html}{``What is\ldots?'' Seminar},
+Berlin Mathematical School, FU Berlin, October 2019.
+\item \emph{On the moduli of weighted hypersurfaces.}
+Max Planck Institute for Mathematics in the Sciences, Leipzig, 2019.
+% TODO: month, if you want it (you thought June or July 2019).
+\item \emph{Moduli of hypersurfaces in weighted projective space.}
+\href{https://www.maths.ox.ac.uk/node/32016}{Algebraic Geometry Seminar},
+University of Oxford, May 2019.
+\item \emph{Moduli of hypersurfaces in weighted projective space.}
+International Centre for Theoretical Physics, Trieste, January 2019.
+\item \emph{On the moduli of weighted hypersurfaces.}
+EAUMP--ICTP summer school on homological methods in algebra and geometry,
+University of Dar-es-Salaam, July 2018.
+\item \emph{Quotients in classification problems.}
+American University in Cairo, September 2017.
+\end{cvlist}
 
-\noindent\rule{17cm}{0.4pt}\\
-\noindent\textbf{Organisational Work}\\
-$\bullet \,$ Organiser: Workshop on homological algebra and discrete geometry, Makerere university, Kampala 2021\\
-$\bullet \,$ Organiser: Workshop on Nonlinear algebra, TU Berlin, 2020\\
-$\bullet \,$ Group Leader: Cubic surfaces workshop, University of Oslo, 2019\\
-$\bullet \,$ Facilitator: EAUMP-ICTP Summer school on Homological Methods in Algebra and Geometry, University of Dar-es-Salaam, 2018\\
-$\bullet \,$ Organiser: Research seminar - Further topics in geometric invariant theory,  Freie Universit\"at Berlin, Summer Semester 2016\\
+%% ======================= SUPERVISION =======================
+\cvsection{Supervision}
+\begin{cvlist}
+\item David Schmaling, Bachelor's thesis,
+{\em Regular sequences and stabiliser groups of polynomials}, TU Berlin, 2025
+\item Josef Cutler, Bachelor's thesis,
+{\em Locally nilpotent derivations and $\mathbb{G}_a$-actions}, TU Berlin, 2025
+\item Yosime Flood, Bachelor's thesis,
+{\em Algebraic curves and the Riemann--Roch theorem}, TU Berlin, 2024
+\item Jonathan Wasserman, Master's thesis, {\em The Keel--Mori theorem},
+TU Berlin, in progress
+\item Aleksandra Kozhevnikova, Master's thesis,
+{\em Borel--Moore cohomology of geometric quotients}, TU Berlin, in progress
+\item Two Bachelor's theses, TU Berlin, in progress
+% TODO: names and titles of the two Bachelor's students once their topics settle.
+\end{cvlist}
 
+%% ======================= AFRICA =======================
+\cvsection{Mathematics in Africa}
+{\small Sustained involvement since 2014, in teaching, organisation, programme
+governance and outreach. Individual entries also appear under Teaching,
+Organisational work and Research visits.}
+\begin{cvlist}
+\item Lecturer, Makerere University, Kampala, 2022--23; guest lecturer for a
+graduate seminar there, 2023; organiser of a workshop there, 2021, and
+co-organiser of a conference there, 2027 (forthcoming)
+\item Programme committee, Young African Mathematicians fellowship programme,
+MATH+, Berlin; international collaborator, Eastern Africa Algebra Research Group
+\item Organiser and mini-course lecturer, workshop
+{\em Equivariant methods in geometry}, University of Ibadan, 2024
+\item Lecture course on lattice polytopes, {\em Algebra and Geometry from Africa}
+(Mathematics for Humanity programme), ICMS Edinburgh, 2025
+\item Guest lecturer, AIMS Ghana, 2020 and 2021/22; research visit to AIMS
+Rwanda, 2023
+\item Facilitator and speaker, EAUMP--ICTP summer school, University of
+Dar-es-Salaam, 2018; lecturer, 1st EAALG workshop, 2021
+\item Public talks {\em Why mathematics?} in Kampala, 2022; A-level teaching and
+university-application mentoring, St.\ Peter's Kubatana High School, Harare,
+Zimbabwe, 2014
+\end{cvlist}
 
-\noindent\rule{17cm}{0.4pt}\\
-\noindent\textbf{Teaching}\\
-$\bullet \,$ Summer Semester 2023, Algebra II (Commutative Algebra), TU Berlin\\
-$\bullet \,$ Summer Semester 2022, Algebraic Geometry, Makerere University\\
-$\bullet \,$ Winter semester 2021/22, Algebra I (Galois Theory, auf Deutsch), TU Berlin\\
-$\bullet \,$ Intro to Homological algebra, December 2021 workshop EAALG\\
-$\bullet \,$ Polyhedral geometry and polymake, Abram Gannibal workshop, 2020\\
-$\bullet \,$ Summer Semester 2020, Derived categories in algebraic geometry, Makerere University\\
-$\bullet \,$ Singularities of affine hypersurfaces, Macaulay2 workshop, 2020\\
-$\bullet \,$ Winter semster 2017/18, Linear Algebra I (auf Deutsch), FU Berlin\\
-$\bullet \,$ Summer semester 2017, Linear Algebra II (auf Deutsch), FU Berlin\\
-$\bullet \,$ Winter semester 2016/17, Differential Geometry I (Berlin mathematics school)\\
-$\bullet \,$ Summer of 2014, St. Peters Kubatana High School, Harare, Zimbabwe. Advanced level mathematics\\
-$\bullet \,$ 2014-2015, Tutor for undergraduates - analysis, linear algebra, abstract algebra, calculus, Warwick university\\
-$\bullet \,$ 2012-2015, Private tutor for a number of A-level and GCSE students, Warwick university\\
-\\
-\noindent\rule{17cm}{0.4pt}\\
-\textbf{Languages}\\
-$\bullet \,$English (native)\\
-$\bullet \,$German (fluent)\\
-%$\bullet \,$French (beginner)\\
-$\bullet \,$Lugandan (beginner)
+%% ======================= SERVICE =======================
+\cvsection{Service and outreach}
+\begin{cvlist}
+\item Nominated and prepared the successful application for a MATH+ Hanna
+Neumann Fellowship (Caroline Namanya, 2026)
+\item Referee for {\em Bulletin of the London Mathematical Society}, {\em Journal
+of the London Mathematical Society}, {\em International Mathematics Research
+Notices} and {\em Advances in Geometry}
+\item Programme committee, Young African Mathematicians (YAM) fellowship
+programme, MATH+, Berlin
+\item International collaborator,
+\href{https://sites.google.com/view/eaalg/international-collaborators}{Eastern Africa Algebra Research Group} (EAALG)
+\item \href{https://mathplus.de/news/calculate-with-africa-meridian-podcast-featuring-math-members-bunnett-and-zainelabdeen/}{\em Calculate with Africa: transforming the world through mathematics},
+Meridian podcast, Berlin University Alliance, 2024
+\item {\em Why mathematics?} Public talks for incoming university students at
+Makerere University and for pupils at a state secondary school in Kampala, 2022
+% TODO: confirm the year of the two Kampala talks, and the school's name.
+% TODO (optional): any committee, editorial, admissions or hiring panel work.
+\end{cvlist}
+
+%% ======================= RESEARCH VISITS =======================
+\cvsection{Research visits}
+\begin{cvlist}
+\item Isaac Newton Institute satellite programme
+{\em Algebraic Groups, Geometry, Invariants and Related Topics},
+University of Essex, invited participant, July 2026
+\item Isaac Newton Institute, University of Cambridge, programme
+{\em New Equivariant Methods in Algebraic and Differential Geometry},
+January -- June 2024
+\item AIMS Rwanda, {\em visiting} Jan H\k{a}z\l{}a, January 2023
+\item University of Essex, Colchester, {\em visiting} Jes\'us Mart\'inez-Garc\'ia, April 2022
+\item International Centre for Theoretical Physics, Trieste,
+{\em visiting} Alejandra Rinc\'on, March 2022
+\item University of Oxford, {\em visiting} Praise Adeyemo and Bal\'azs Szendr\H{o}i, January 2022
+\item International Centre for Theoretical Physics, Trieste,
+{\em visiting} Tarig Abdelgadir, January 2019
+\end{cvlist}
+
+%% ======================= SOFTWARE =======================
+\cvsection{Software}
+Available at \url{https://github.com/dombunnett}
+\par\vspace{0.12cm}
+\begin{cvlist}
+\item \href{https://github.com/micjoswig/TropicalModuliData/tree/main/2023-Stacky_fans_and_tropical_moduli_in_polymake}{Stacky fans and tropical moduli in polymake}, \texttt{polymake}\\
+{\em Joint with Michael Joswig and Julian Pfeifle.}
+\item Reduced submodules of finite dimensional polynomial modules, \texttt{python}
+\item Determinantal representations of the cubic discriminant, \texttt{M2}
+\item Automorphism group of a projective toric orbifold, \texttt{polymake}
+\item Non-normal simplices and weighted projective spaces, \texttt{polymake}
+\end{cvlist}
+
+%% ======================= ORGANISATIONAL WORK =======================
+\cvsection{Organisational work}
+\begin{cvlist}
+\item Co-organiser: Conference in algebraic geometry, Makerere University,
+Kampala, 2027 (forthcoming)
+% TODO: exact conference name and dates once fixed
+\item Organiser: Workshop {\em Equivariant methods in geometry},
+University of Ibadan, January 2024
+\item Organiser: Workshop on homological algebra and discrete geometry,
+Makerere University, Kampala, 2021
+\item Organiser: Workshop on nonlinear algebra, TU Berlin, 2020
+\item Group leader: Cubic surfaces workshop, University of Oslo, 2019
+\item Facilitator: EAUMP--ICTP summer school on homological methods in algebra
+and geometry, University of Dar-es-Salaam, 2018
+\item Organiser: Research seminar --- further topics in geometric invariant
+theory, Freie Universit\"at Berlin, Summer Semester 2016
+\end{cvlist}
+
+%% ======================= TEACHING =======================
+\cvsection{Teaching}
+\begin{cvlist}
+\item Summer Semester 2026, Algebra II (Commutative Algebra), TU Berlin
+\item Summer Semester 2026, Seminar on Linear Algebraic Groups, TU Berlin
+\item Winter Semester 2025/26, Algebraic Geometry I, TU Berlin
+\item Winter Semester 2025/26, Analysis II for Engineers, TU Berlin
+\item Since September 2024, {\em Applied Computational Mathematics},
+The Open University (Associate Lecturer)
+\item May 2025, Lecture course on lattice polytopes,
+{\em Algebra and Geometry from Africa}, ICMS, Edinburgh
+\item Summer Semester 2025, Schemes reading course, TU Berlin
+\item Summer Semester 2024, Algebra II (Commutative Algebra), TU Berlin
+\item Winter Semester 2023/24, Algebra I (Fields and Galois Theory), TU Berlin
+\item January 2024, Mini-course on moduli spaces and group actions, workshop
+\href{https://sites.google.com/view/bunnett/equivariant-methods-in-geometry-ibadan-2023}{\em Equivariant methods in geometry},
+University of Ibadan
+\item Winter Semester 2023/24, Algebraic Geometry (remote learning course)
+\item August 2023, Graduate seminar on advanced topics in commutative algebra
+and geometry, Makerere University
+\item Summer Semester 2023, Calculus I and Linear Algebra for Engineers, TU Berlin
+\item Summer Semester 2022, Algebraic Geometry, Makerere University
+\item Winter Semester 2021/22, Algebra I (Galois Theory, auf Deutsch), TU Berlin
+\item Winter Semester 2021/22, Computational introduction to algebraic geometry, AIMS Ghana
+\item December 2021, Introduction to homological algebra, EAALG workshop
+\item Summer Semester 2020, Derived categories in algebraic geometry, Makerere University
+\item 2020, Polyhedral geometry and polymake, Abram Gannibal workshop
+\item 2020, Singularities of affine hypersurfaces, Macaulay2 workshop
+\item Winter Semester 2017/18, Linear Algebra I (auf Deutsch), FU Berlin
+\item Summer Semester 2017, Linear Algebra II (auf Deutsch), FU Berlin
+\item Winter Semester 2016/17, Differential Geometry I, Berlin Mathematical School
+\item 2014--2015, Undergraduate tutor (analysis, linear algebra, abstract
+algebra, calculus), University of Warwick; 2012--2015, private tutor at
+A-level and GCSE; Summer 2014, A-level mathematics, St.\ Peter's Kubatana
+High School, Harare, Zimbabwe
+\end{cvlist}
+
+%% ======================= LANGUAGES =======================
+\cvsection{Languages}
+English (native) \quad $\cdot$ \quad German (fluent) \quad $\cdot$ \quad Luganda (beginner)
+
 \end{document}

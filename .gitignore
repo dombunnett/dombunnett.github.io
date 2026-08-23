@@ -3,3 +3,6 @@ cv/*.aux
 cv/*.log
 cv/*.out
 cv/*.synctex.gz
+
+# Grant application CV — contains salary and contract details, keep out of the public repo
+cv/kt_boost_cv.*
