@@ -1,0 +1,19 @@
+---
+layout: default
+title: Blog
+description: Dominic Bunnett — blog
+---
+<h2>Blog</h2>
+<p>Notes on things I am building and using, starting with a language model that runs privately on my own laptop.</p>
+
+<ul class="post-list">
+{% for post in site.posts %}
+    <li>
+        <span class="post-date">{{ post.date | date: "%-d %b %Y" }}</span>
+        <a href="{{ post.url }}"><b>{{ post.title }}</b></a>
+        {% if post.description %}<span class="post-summary">{{ post.description }}</span>{% endif %}
+    </li>
+{% else %}
+    <li>No posts yet.</li>
+{% endfor %}
+</ul>
