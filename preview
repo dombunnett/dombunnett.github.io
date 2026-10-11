@@ -1,0 +1,115 @@
+#!/bin/bash
+# ./preview  -  build the whole website locally and open it in Firefox.
+#
+#   ./preview            the site exactly as it will go live (main pages, blog, zoo)
+#   ./preview --drafts   also show unpublished blog posts (_drafts/) and zoo drafts
+#   ./preview --no-zoo   leave out the zoo (faster start when editing the main pages)
+#
+# Leave it running while you edit: saved changes are rebuilt automatically.
+# Blog posts reload in the browser by themselves; for the hand-written pages
+# (index.html, talks.html, ...) press reload. Changes to the zoo need a restart.
+# Press Ctrl-C to stop.
+
+set -e
+cd "$(dirname "$0")"
+
+PORT=4000
+URL="http://localhost:$PORT/"
+drafts=no
+zoo=yes
+
+for arg in "$@"; do
+  case "$arg" in
+    --drafts) drafts=yes ;;
+    --no-zoo) zoo=no ;;
+    -h|--help) sed -n '2,11p' "$0" | sed 's/^# \{0,1\}//'; exit 0 ;;
+    *) echo "Unknown option: $arg   (see ./preview --help)"; exit 1 ;;
+  esac
+done
+
+open_browser() {
+  if ! open -a Firefox "$1" 2>/dev/null; then
+    echo "Firefox not found - opening your default browser instead."
+    open "$1"
+  fi
+}
+
+# A preview is already running: just show it.
+if curl -s -o /dev/null "$URL"; then
+  echo "A preview is already running at $URL - opening it."
+  open_browser "$URL"
+  exit 0
+fi
+
+# Jekyll (the Ruby packages listed in the Gemfile)
+if ! command -v bundle >/dev/null 2>&1; then
+  echo "Ruby's 'bundle' command was not found, so the site cannot be built."
+  echo "Install Ruby (e.g. 'brew install ruby'), then run: bundle install"
+  exit 1
+fi
+if ! bundle check >/dev/null 2>&1; then
+  echo "The Ruby packages for the site are not installed yet. Run once:"
+  echo "    bundle install"
+  exit 1
+fi
+
+# The zoo (Quarto), built the same way GitHub does
+if [ "$zoo" = yes ] && ! command -v quarto >/dev/null 2>&1; then
+  echo "WARNING: Quarto is not installed, so the zoo is left out of this preview."
+  echo "         To include it: brew install --cask quarto"
+  zoo=no
+fi
+if [ "$zoo" = yes ]; then
+  echo "Rendering the zoo ..."
+  if [ "$drafts" = yes ]; then
+    quarto render _zoo --profile drafts
+  else
+    quarto render _zoo
+    quarto run _zoo/_assets/remove-drafts.ts _zoo/_site
+  fi
+fi
+
+# Put the zoo into the site at /zoo/, and tell Jekyll (for this preview only)
+# not to delete it when it rebuilds.
+tmpdir=$(mktemp -d)
+echo "keep_files: [.git, .svn, zoo]" > "$tmpdir/preview.yml"
+rm -rf _site/zoo
+if [ "$zoo" = yes ]; then
+  mkdir -p _site/zoo
+  cp -R _zoo/_site/. _site/zoo/
+fi
+
+jekyll_args=(serve --livereload --port "$PORT" --config "_config.yml,$tmpdir/preview.yml")
+[ "$drafts" = yes ] && jekyll_args+=(--drafts)
+
+echo "Building the site with Jekyll ..."
+bundle exec jekyll "${jekyll_args[@]}" &
+pid=$!
+
+cleanup() {
+  kill "$pid" 2>/dev/null || true
+  wait "$pid" 2>/dev/null || true
+  rm -rf "$tmpdir"
+}
+trap cleanup EXIT
+trap 'echo; echo "Preview stopped."; exit 0' INT TERM
+
+# Wait until the site actually answers (up to 2 minutes), then open it.
+for _ in $(seq 1 240); do
+  curl -s -o /dev/null "$URL" && break
+  if ! kill -0 "$pid" 2>/dev/null; then
+    echo "Jekyll stopped with an error - see the messages above."
+    exit 1
+  fi
+  sleep 0.5
+done
+
+if curl -s -o /dev/null "$URL"; then
+  open_browser "$URL"
+  echo
+  echo "Preview running at $URL   (zoo: ${URL}zoo/)   -  Ctrl-C to stop"
+else
+  echo "The site is taking unusually long to build; it will appear at $URL when ready."
+fi
+
+wait "$pid"
