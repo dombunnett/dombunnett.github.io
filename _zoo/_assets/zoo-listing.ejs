@@ -1,0 +1,9 @@
+<% if (items.length === 0) { %>
+<p class="zoo-empty">Examples are being prepared.</p>
+<% } else { %>
+<ul class="zoo-list">
+<% for (const item of items) { %>
+<li <%= metadataAttrs(item) %>><a href="<%= item.path.replace(/index\.(qmd|html)$/, '') %>"><%= item.title %></a><% if (item.description) { %> <span class="zoo-desc"><%= item.description %></span><% } %><% if (item.categories && item.categories.length) { %> <span class="zoo-tags"><%= item.categories.join(' · ') %></span><% } %></li>
+<% } %>
+</ul>
+<% } %>

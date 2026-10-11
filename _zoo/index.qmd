@@ -1,0 +1,21 @@
+---
+title: "The non-reductive zoo"
+pagetitle: "The non-reductive zoo — Dominic Bunnett"
+zoo-index: true
+listing:
+  id: zoo-entries
+  contents: "*/index.qmd"
+  template: _assets/zoo-listing.ejs
+  sort: "order"
+  fields: [title, description, categories, order]
+---
+
+<!-- Edit the introduction below. The list of examples is generated automatically
+     from the published entries (their title, description and order fields). -->
+
+A collection of examples and curious phenomena in non-reductive group actions and invariant theory.
+
+Each cage below houses one example.
+
+::: {#zoo-entries}
+:::

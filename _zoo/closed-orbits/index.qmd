@@ -1,0 +1,55 @@
+---
+# ---- Metadata --------------------------------------------------------------
+# Draft entry. Will be published at /zoo/closed-orbits/
+title: "More than one closed orbit in an orbit closure"
+# One sentence, shown under the title here and in the zoo index.
+description: "ONE-LINE DESCRIPTION FOR THE INDEX."
+# Position in the index: smaller numbers come first (leave gaps: 10, 20, 30, ...).
+order: 30
+# Publication date (YYYY-MM-DD), shown on the cage. Set it to the day you publish.
+date: 2026-10-11
+# Optional tags (shown in the index and on the page). Delete the line if unused.
+categories: []
+# Optional author / contributor credit. Delete the line if unused.
+# author: "Name"
+# Remove this line (or set it to false) to publish the entry.
+draft: true
+---
+
+::: {.callout-warning}
+## Draft — for completion
+This entry is a draft and is not published. Replace every CAPITALISED placeholder,
+then remove `draft: true` from the metadata above.
+:::
+
+## Phenomenon
+
+A concise statement of what happens.
+
+## Setup
+
+- **Field and characteristic:** 
+- **Group:** 
+- **Variety or representation:** 
+- **Action:** 
+
+## Construction
+
+<!-- Theorem-like blocks:  ::: {#thm-label} ... :::   (also lem-, prp-, cor-, def-, exm-, rem-)
+     Referenced with @thm-label.
+     Proofs:                ::: {.proof} ... :::
+     Numbered equations:    $$ ... $$ {#eq-label}   referenced with @eq-label. -->
+
+## Verification or proof
+
+## What this teaches
+
+The precise expectation or theorem whose hypotheses matter, and which hypothesis fails here.
+
+## References and related examples
+
+<!-- Cite with [@key] using entries in _zoo/references.bib.
+     Link to other zoo entries with relative links, e.g. [Nagata](../nagata/index.qmd). -->
+
+::: {#refs}
+:::

@@ -1,0 +1,297 @@
+---
+title: "Nagata's counterexample to finite generation"
+subtitle: "Sixteen points in the plane and a non-finitely generated invariant ring"
+description: "How Nagata's theorem on plane curves produces a linear representation of a vector group whose invariant ring is not finitely generated."
+order: 10
+# Publication date (YYYY-MM-DD), shown on the cage. Set it to the day you publish.
+date: 2026-10-11
+categories: [Invariant theory, Non-reductive groups, Counterexamples]
+nocite: |
+  @nagata1965
+# Remove this line to publish the entry.
+draft: true
+---
+
+An invariant ring consists of the polynomial functions that are constant along the orbits of a group action. Hilbert's fourteenth problem asks, in its invariant-theoretic form, whether such rings are always finitely generated: if an algebraic group $G$ acts linearly on a finite-dimensional vector space $V$ over a field $k$, is $k[V]^G$ a finitely generated $k$-algebra? For reductive groups acting on affine varieties the answer is yes. Hilbert proved this for the general linear group in characteristic zero; in general it follows from Nagata's theorem that geometrically reductive groups have finitely generated invariant rings [@nagata1963], together with Haboush's theorem that reductive groups are geometrically reductive [@haboush1975].
+
+## Phenomenon
+
+Nagata gave the first counterexample to Hilbert's fourteenth problem [@nagata1959; @freudenburg2001, §2.1]: a linear action of $U\cong\mathbb G_a^{13}$ on $\mathbb A^{32}$ whose invariant ring is not finitely generated. The group acts by shears. The proof reduces non-finite generation to a theorem of Nagata on plane curves with prescribed multiplicities at sixteen general points.
+
+This cage describes the action, identifies the invariants of an auxiliary group $U\times T$ with a ring of plane curves with prescribed multiplicities, and deduces non-finite generation from Nagata's theorem, which is used without proof. Freudenburg's survey [@freudenburg2001] covers the history of the problem and later counterexamples.
+
+## Setup
+
+### Sixteen constrained shears
+
+Let $A=(a_{ij})$ be a $3\times16$ matrix whose entries are algebraically independent over $\mathbb Q$, and work over $k=\mathbb Q(a_{ij})$. Its columns
+$$
+a_j=(a_{1j},a_{2j},a_{3j})
+$$
+define sixteen points $p_j=[a_j]\in\mathbb P^2_k$. The algebraic independence makes this a generic configuration. One can equally choose algebraically independent complex numbers and work over $\mathbb C$.
+
+Define
+$$
+U=\ker\bigl(A:\mathbb G_a^{16}\longrightarrow\mathbb G_a^3\bigr).
+$$
+The matrix has rank three, so $U\cong\mathbb G_a^{13}$. In coordinates,
+$$
+U=\left\{b=(b_1,\ldots,b_{16}):
+\sum_{j=1}^{16}a_{ij}b_j=0\quad(i=1,2,3)\right\}.
+$$
+
+Write
+$$
+R=k[x_1,\ldots,x_{16},t_1,\ldots,t_{16}].
+$$
+We specify the action on this polynomial ring by
+$$
+b\cdot x_j=x_j+b_jt_j,
+\qquad b\cdot t_j=t_j.
+$$
+These linear substitutions define a linear representation on affine $32$-space, with the usual dual-action convention. Each pair $(x_j,t_j)$ carries the standard two-dimensional shear representation, pulled back along $U\to\mathbb G_a$, $b\mapsto b_j$. The sixteen shear parameters satisfy three linear relations.
+
+::: {.callout-note collapse="true"}
+## The field and the meaning of generic
+
+The same construction works with $k=\pi(a_{ij})$, where $\pi$ is any prime field. Nagata's counterexample exists in arbitrary characteristic with these generic coefficients; see [@totaro2008, Introduction]. We begin in characteristic zero only to simplify the setting.
+
+The algebraically independent construction avoids ambiguity about the points. Over $\mathbb C$, one can instead formulate the geometric theorem below for **very general** points: outside a countable union of proper closed subsets of the configuration space. We do not claim that one Zariski-open condition suffices simultaneously for every multiplicity.
+:::
+
+## Construction
+
+### Finding the invariants away from the coordinate hyperplanes
+
+Every $t_j$ is invariant. Where $t_j\ne0$, put $y_j=x_j/t_j$. The action becomes translation:
+$$
+b\cdot y_j=y_j+b_j.
+$$
+Since $U=\ker A$, the three combinations
+$$
+z_i=\sum_{j=1}^{16}a_{ij}\frac{x_j}{t_j},
+\qquad i=1,2,3,
+$$
+are invariant. They are coordinates on the quotient of the $y$-space by $U$: a linear change of coordinates identifies the action with translation in thirteen variables and fixes the remaining three.
+
+Consequently, writing $\tau=t_1\cdots t_{16}$,
+$$
+R[\tau^{-1}]^U
+=k[t_1^{\pm1},\ldots,t_{16}^{\pm1},z_1,z_2,z_3].
+$$
+In particular,
+$$
+k(x_1,\ldots,x_{16},t_1,\ldots,t_{16})^U
+=k(t_1,\ldots,t_{16},z_1,z_2,z_3).
+$$
+
+The difficulty is now precise: **which expressions in these rational invariants extend to polynomials when some $t_j$ vanish?**
+
+### Poles become multiplicities
+
+Let $F(z_1,z_2,z_3)$ be a nonzero homogeneous form of degree $d$. Regard $F=0$ as a plane curve, allowing reducible and nonreduced curves. Write
+$$
+m_j=\operatorname{mult}_{p_j}(F).
+$$
+For a nonzero constant form, take $m_j=0$.
+
+The crucial calculation is
+$$
+t_1^{e_1}\cdots t_{16}^{e_{16}}F(z_1,z_2,z_3)\in R
+\quad\Longleftrightarrow\quad
+e_j\ge d-m_j\quad\text{for every }j.
+$$
+Thus passing through $p_j$ with higher multiplicity cancels more of the denominator $t_j$.
+
+To see this, fix $j$, write $s=x_j/t_j$, and set
+$$
+z=w+s a_j,
+\qquad
+w=\sum_{\ell\ne j}a_\ell\frac{x_\ell}{t_\ell}.
+$$
+Expand the polynomial $F(a_j+u)$ into homogeneous terms in $u$:
+$$
+F(a_j+u)=\sum_{q=m_j}^{d}F_q(u),
+\qquad F_{m_j}\ne0.
+$$
+The least degree here is the multiplicity at $p_j$. Homogeneity gives
+$$
+F(w+s a_j)=\sum_{q=m_j}^{d}s^{d-q}F_q(w).
+$$
+The other fifteen columns span $k^3$, so $F_{m_j}(w)$ is not identically zero. Hence $F(z)$ has pole order exactly $d-m_j$ along $t_j=0$. These coordinate hyperplanes are its only possible poles, proving the criterion.
+
+For example, $F=z_i$ has degree one and does not vanish at any $p_j$, because $a_{ij}\ne0$. Clearing its denominators gives the polynomial invariant
+$$
+\tau z_i
+=\sum_{j=1}^{16}a_{ij}x_j\prod_{\ell\ne j}t_\ell.
+$$
+
+### An auxiliary torus makes the multiplicities equal
+
+To expose the obstruction, introduce the torus
+$$
+T=\left\{(c_1,\ldots,c_{16})\in\mathbb G_m^{16}:
+\prod_{j=1}^{16}c_j=1\right\}\cong\mathbb G_m^{15},
+$$
+acting by
+$$
+c\cdot x_j=c_jx_j,
+\qquad c\cdot t_j=c_jt_j.
+$$
+This action commutes with the shears, so the combined group is the direct product $G=U\times T$. The ratios $x_j/t_j$, and therefore the $z_i$, are fixed by $T$.
+
+A Laurent monomial $t_1^{e_1}\cdots t_{16}^{e_{16}}$ is fixed by $T$ exactly when all $e_j$ are equal. The polynomiality criterion therefore becomes
+$$
+\tau^eF(z)\in R
+\quad\Longleftrightarrow\quad
+\operatorname{mult}_{p_j}(F)\ge d-e
+\quad\text{for all }j.
+$$
+Put $m=d-e$, and define
+$$
+L(d,m)=\left\{F\in k[z_1,z_2,z_3]_d:
+\operatorname{mult}_{p_j}(F)\ge m\text{ for every }j\right\}.
+$$
+For $m\le0$, the condition is vacuous. We obtain the bigraded ring
+$$
+R^G=\bigoplus_{\substack{d\ge0\\m\in\mathbb Z}}
+\tau^{d-m}L(d,m)
+\ \subset\ k[\tau^{\pm1},z_1,z_2,z_3].
+$$
+Multiplication adds the bidegrees $(d,m)$. Negative values of $m$ are necessary: $\tau$ has bidegree $(0,-1)$, while $\tau z_i$ has bidegree $(1,0)$.
+
+::: {.callout-note collapse="true"}
+## Why this accounts for every invariant
+
+Taking $T$-invariants after localising gives
+$$
+R[\tau^{-1}]^{U\times T}=k[\tau^{\pm1},z_1,z_2,z_3].
+$$
+Every element of this ring has a unique finite decomposition into terms $\tau^eF_d(z)$ with $F_d$ homogeneous of degree $d$.
+
+There can be no cancellation of non-polynomial terms between distinct pairs $(e,d)$. Give the Laurent polynomial ring in the original variables the grading
+$$
+\deg(t_j)=(\varepsilon_j,0),
+\qquad
+\deg(x_j)=(\varepsilon_j,1),
+$$
+where $\varepsilon_j$ is the $j$th standard basis vector of $\mathbb Z^{16}$. Then $z_i$ has degree $(0,1)$, and $\tau^eF_d(z)$ has degree $((e,\ldots,e),d)$. The polynomial subring $R$ is graded, so an element belongs to $R$ if and only if each of its homogeneous components does. Applying the pole criterion to each component gives the displayed direct sum.
+:::
+
+## Proof of non-finite generation
+
+### The geometric input
+
+The following is the equal-multiplicity case of Nagata's theorem for sixteen generic points [@nagata1959; @freudenburg2001, §2.1].
+
+::: {.callout-important}
+## Nagata's theorem
+
+For every integer $m\ge1$, no nonzero homogeneous form of degree $4m$ vanishes to order at least $m$ at all sixteen points. Equivalently,
+$$
+L(4m,m)=0.
+$$
+:::
+
+It follows that $L(d,m)=0$ whenever $d\le4m$ and $m\ge1$: a form of smaller degree could be multiplied by a nonzero form of the complementary degree to contradict the theorem.
+
+This is a theorem about arbitrarily large multiplicities, not just the absence of a quartic through sixteen points. Its proof uses specialisation and is the part of Nagata's construction we take as an input.
+
+Immediately above this bound, however, curves must exist. Degree-$d$ forms constitute a vector space of dimension $\binom{d+2}{2}$. Vanishing to order at least $m$ at one point imposes at most $\binom{m+1}{2}$ linear conditions. Therefore
+$$
+\begin{aligned}
+\dim L(4m+1,m)
+&\ge \binom{4m+3}{2}-16\binom{m+1}{2}\\
+&=2m+3>0.
+\end{aligned}
+$$
+We do not need the conditions to be independent. We have proved
+$$
+L(4m,m)=0,
+\qquad
+L(4m+1,m)\ne0
+\qquad(m\ge1).
+$$
+
+### Why no finite list can generate the invariants
+
+Suppose $R^G$ were finitely generated. Since it is bigraded, we could choose finitely many nonzero bihomogeneous generators, with bidegrees $(d_i,m_i)$.
+
+For every generator with $m_i>0$, Nagata's theorem gives $d_i>4m_i$. Thus
+$$
+\mu=\max\left(\{0\}\cup
+\left\{\frac{m_i}{d_i}:m_i>0\right\}\right)<\frac14.
+$$
+Every generator satisfies $m_i\le\mu d_i$, including those with $m_i\le0$. Since bidegrees add, every monomial in the generators satisfies the same inequality. Hence every nonzero homogeneous piece would have to satisfy
+$$
+m\le\mu d.
+$$
+
+But $L(4m+1,m)\ne0$ supplies nonzero invariants of bidegree $(4m+1,m)$ for every $m\ge1$, and
+$$
+\frac{m}{4m+1}\longrightarrow\frac14.
+$$
+For sufficiently large $m$, this exceeds $\mu$, a contradiction. Therefore $R^G$ is not finitely generated.
+
+Finally,
+$$
+R^G=(R^U)^T.
+$$
+If $R^U$ were finitely generated, finite generation for torus invariants would imply that $(R^U)^T$ was finitely generated too. Thus **$R^U$ is not finitely generated**, proving the claimed counterexample for the vector group alone.
+
+::: {.callout-note collapse="true"}
+## An alternative proof using one grading
+
+Give the piece of bidegree $(d,m)$ the degree $\delta=d-4m$. Every nonconstant homogeneous invariant has positive integral $\delta$: this follows from Nagata's theorem when $m>0$, and directly when $m\le0$. The degree-zero part is exactly $k$.
+
+The nonzero pieces $L(4m+1,m)$ give an infinite-dimensional degree-one part. In a finitely generated positively graded algebra with degree-zero part $k$, the degree-one part is spanned by the finitely many degree-one generators: products of two positive-degree elements cannot contribute. This is again a contradiction.
+:::
+
+## What this teaches
+
+The reductive finite-generation theorem cannot be extended to arbitrary linear algebraic groups, even for linear actions on affine space. Yet non-reductivity does not itself force failure: by Weitzenböck's theorem, a single $\mathbb G_a$ acting linearly in characteristic zero has a finitely generated invariant ring [@freudenburg2001, §1].
+
+Here the failure comes from a concrete interpolation problem. Any finite collection of invariants stays uniformly away from the forbidden slope, while further invariants occur arbitrarily close to it.
+
+### The geometry behind the limiting slope
+
+Let $X$ be the blow-up of $\mathbb P^2$ at the sixteen points, let $H$ be the pullback of the class of a line, and let $E_j$ be the exceptional divisors. For $m\ge0$, forms in $L(d,m)$ correspond to sections of
+$$
+\mathcal O_X\left(dH-m\sum_{j=1}^{16}E_j\right).
+$$
+The same identification extends to negative $m$: the added exceptional divisors are fixed components. Thus, with the indicated gradings and multiplication,
+$$
+R^G\cong
+\bigoplus_{\substack{d\ge0\\m\in\mathbb Z}}
+H^0\left(X,\mathcal O_X\left(dH-m\sum_jE_j\right)\right).
+$$
+
+Put $D=4H-\sum_jE_j$. Our two statements become
+$$
+H^0(X,\mathcal O_X(mD))=0,
+\qquad
+H^0(X,\mathcal O_X(mD+H))\ne0
+\quad(m\ge1).
+$$
+In the plane of divisor classes spanned by $H$ and $\sum E_j$, effective classes approach the ray through $D$, but no positive multiple of $D$ is effective. This boundary is **rational**: $D$ is an integral class. The obstruction is that the limiting slope is never attained.
+
+::: {.callout-note collapse="true"}
+## The Cox ring viewpoint
+
+Keeping all sixteen multiplicities separately identifies $R^U$ with the Cox ring of $X$:
+$$
+\operatorname{Cox}(X)=
+\bigoplus_{(d,m_1,\ldots,m_{16})\in\mathbb Z^{17}}
+H^0\left(X,\mathcal O_X\left(dH-\sum_jm_jE_j\right)\right).
+$$
+This is the general identification described in [@totaro2008, Theorem 2.1], attributed there to Mukai. Taking $T$-invariants selects the subring in which all sixteen multiplicities agree. The auxiliary torus therefore reduces a calculation with seventeen grading indices to two.
+:::
+
+## References and related examples
+
+Nagata's example is also a starting point for smaller constructions. Steinberg obtained a linear action of $\mathbb G_a^6$ on $\mathbb A^{18}$; Totaro later gave explicit examples over every field, including $\mathbb G_a^3$ on $\mathbb A^{18}$ and $\mathbb G_a^4$ on $\mathbb A^{16}$ [@totaro2008, Theorem 0.1].
+
+Freudenburg's survey gives Nagata's construction in §2.1 and Weitzenböck's theorem in §1. Nagata's Tata lectures give further background on the construction and its geometric interpretation. Totaro's Theorems 0.1 and 2.1 cover the smaller examples and the Cox ring identification.
+
+::: {#refs}
+:::

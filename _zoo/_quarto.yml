@@ -1,0 +1,42 @@
+# Quarto project for the non-reductive zoo.
+# Only this folder is processed by Quarto; the rest of the website is untouched.
+# The rendered site goes to _zoo/_site/ (not committed); GitHub Actions copies it to /zoo/.
+project:
+  type: website
+  output-dir: _site
+  render:
+    - index.qmd
+    - "*/index.qmd"
+    - "!_template/"
+
+website:
+  title: "The non-reductive zoo"
+  site-url: https://dombunnett.github.io/zoo/
+  # Pages with `draft: true` are not rendered and are left out of the index.
+  # (`quarto preview _zoo --profile drafts` shows them; see _quarto-drafts.yml.)
+  draft-mode: gone
+  search: false
+  page-navigation: false
+
+# Shared bibliography for all entries (BibTeX).
+bibliography: references.bib
+link-citations: true
+
+# How the date of each cage is displayed, e.g. 11 October 2026.
+date-format: "D MMMM YYYY"
+
+filters:
+  - _assets/zoo.lua
+
+format:
+  html:
+    theme: [default, _assets/zoo.scss]
+    page-layout: article
+    grid:
+      body-width: 860px
+    toc: false
+    anchor-sections: false
+    html-math-method: mathjax
+    include-in-header: _assets/head.html
+    include-after-body: _assets/footer.html
+    lang: en-GB

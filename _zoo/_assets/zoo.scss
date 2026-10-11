@@ -1,0 +1,93 @@
+/*-- scss:defaults --*/
+// Match the hand-written pages of dombunnett.github.io
+$font-family-sans-serif: 'Inconsolata', monospace;
+$font-family-monospace: 'Inconsolata', monospace;
+$body-bg: #f8f8f8;
+$body-color: #222;
+$link-color: darkblue;
+$link-decoration: none;
+$link-hover-decoration: underline;
+$font-size-root: 16px;
+$font-size-base: 0.9375rem;   // 15px, as on the main site
+$line-height-base: 1.5;
+$headings-font-weight: 700;
+$headings-color: #222;
+
+/*-- scss:rules --*/
+// Navigation bar, copied from the main site
+.myDiv {
+  background-color: #2F4F4F;
+  color: white;
+  text-align: center;
+}
+.nav-inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 34px;
+  padding: 12px 0;
+  flex-wrap: wrap;
+}
+.myDiv a:link, .myDiv a:visited { color: white; text-decoration: none; }
+.myDiv a:hover { color: yellow; text-decoration: underline; }
+
+// Links, as on the main site
+main a:link { color: darkblue; text-decoration: none; }
+main a:visited { color: #666; }
+main a:hover { color: yellow; text-decoration: underline; }
+
+// The nav bar sits flush with the top of the page, as on the main site
+body { padding-top: 0 !important; }
+main.content { margin-top: 0 !important; padding-top: 0 !important; }
+nav.myDiv { margin-bottom: 2rem; }
+
+// Breadcrumb / back links
+.zoo-crumbs { font-size: 0.92em; color: #555; margin-bottom: 0.6rem; }
+.zoo-back { margin-top: 2.5rem; font-size: 0.92em; }
+
+// Title block: page title styled like the main site's page headings (h2)
+#title-block-header { margin-bottom: 1.2rem; }
+#title-block-header .title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 6px;
+  margin-bottom: 14px;
+}
+#title-block-header .description { color: #555; font-size: 1em; font-style: italic; }
+#title-block-header .quarto-categories .quarto-category {
+  font-size: 0.8em; border: 1px solid #ccc; border-radius: 3px; color: #555; background: none;
+}
+.quarto-title-meta-heading { font-size: 0.8em; color: #777; }
+
+// Section headings inside entries: like the main site's h3
+main h2 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-top: 28px;
+  margin-bottom: 10px;
+}
+main h3 { font-size: 1rem; font-weight: 700; margin-top: 20px; }
+
+// Theorem-like blocks and proofs: restrained
+.theorem, .lemma, .proposition, .corollary, .definition, .example, .remark, .conjecture {
+  margin: 1rem 0;
+}
+.proof { margin: 0.5rem 0 1rem; }
+
+// Index list, styled like the main site's talk lists
+ul.zoo-list { list-style: none; padding-left: 0; margin-top: 1.5rem; }
+ul.zoo-list li { margin-bottom: 14px; }
+ul.zoo-list .zoo-desc { color: #555; display: block; font-size: 0.92em; }
+ul.zoo-list .zoo-tags { color: #777; font-size: 0.85em; }
+.zoo-empty { color: #555; font-style: italic; margin-top: 1.5rem; }
+
+// Bibliography
+#refs { font-size: 0.95em; }
+// Long URLs in references wrap instead of widening the page on phones
+#refs .csl-entry { overflow-wrap: anywhere; }
+
+// Long displayed formulas scroll sideways on narrow screens instead of widening the page
+mjx-container[display="true"] { max-width: 100%; min-width: 0 !important; overflow-x: auto; overflow-y: hidden; }

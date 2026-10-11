@@ -1,0 +1,4 @@
+# Profile for working on drafts:  quarto preview _zoo --profile drafts
+# Drafts are then rendered in full and listed in the index (locally only).
+website:
+  draft-mode: visible

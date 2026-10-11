@@ -1,0 +1,67 @@
+---
+# Draft entry. Will be published at /zoo/roberts/
+title: "Roberts' counterexample: a single additive group acting on affine 7-space"
+# One sentence, shown under the title here and in the zoo index.
+description: "A nonlinear action of the additive group on affine 7-space whose invariant ring is not finitely generated."
+# Position in the index: smaller numbers come first.
+order: 15
+# Publication date (YYYY-MM-DD), shown on the cage. Set it to the day you publish.
+date: 2026-10-11
+categories: [Invariant theory, Non-reductive groups, Counterexamples]
+# Remove this line to publish the entry.
+draft: true
+---
+
+::: {.callout-warning}
+## Draft — for completion
+This cage is a draft and is not published. The statements below are taken from
+Freudenburg's survey [@freudenburg2001, §3.1–3.2]; the proof and the discussion
+are still to be written. Check the details against Roberts' paper [@roberts1990]
+before publishing, then remove `draft: true` from the metadata above.
+:::
+
+## Phenomenon
+
+Roberts gave a counterexample to Hilbert's fourteenth problem in which the group is a single copy of the additive group: the kernel of a certain locally nilpotent derivation of a polynomial ring in seven variables is not finitely generated [@roberts1990; @freudenburg2001, §3.1]. This kernel is the invariant ring of the corresponding action of $\mathbb G_a$ on $\mathbb A^7$. The action is not linear.
+
+## Setup
+
+- **Field and characteristic:** a field $F$ of characteristic $0$.
+- **Group:** $\mathbb G_a$.
+- **Variety:** $\mathbb A^7$, with coordinate ring $F[X,Y,Z,S,T,U,V]$.
+- **Action:** the exponential of the derivation $D$ below.
+
+## Construction
+
+Fix an integer $t\ge2$ and let $D$ be the derivation of $F[X,Y,Z,S,T,U,V]$ given by
+$$
+D=X^{t+1}\frac{\partial}{\partial S}+Y^{t+1}\frac{\partial}{\partial T}+Z^{t+1}\frac{\partial}{\partial U}+(XYZ)^t\frac{\partial}{\partial V}
+$$
+[@freudenburg2001, §3.1]. Then $D$ kills $X,Y,Z$, and $D^2$ kills every variable, so $s\in\mathbb G_a$ acts by
+$$
+(X,Y,Z,S,T,U,V)\longmapsto\bigl(X,\;Y,\;Z,\;S+sX^{t+1},\;T+sY^{t+1},\;U+sZ^{t+1},\;V+s(XYZ)^t\bigr),
+$$
+and the invariant ring is $\ker D$.
+
+<!-- TO WRITE. Notes from the survey (check against the sources):
+     - Roberts' example arose from symbolic blow-ups and Hochster's monomial conjecture;
+       he first gave a counterexample in a complete regular local ring, then the
+       polynomial version.
+     - Deveney–Finston and A'Campo-Neuen independently recognised ker D as the
+       invariant ring of a G_a-action on A^7.
+     - A'Campo-Neuen turned it into a linear action of G_a^12 on A^19.
+     - Freudenburg §3.3: Roberts' Lemma 3 gives homogeneous kernel elements
+       f_n = X V^n + (lower terms in V); possible approach via the Dixmier map. -->
+
+## Verification or proof
+
+TO WRITE.
+
+## What this teaches
+
+TO WRITE. Starting point: by Weitzenböck's theorem, a *linear* action of $\mathbb G_a$ in characteristic zero always has a finitely generated invariant ring [@freudenburg2001, §1]. Roberts' example shows that this fails for nonlinear actions, already on $\mathbb A^7$.
+
+## References and related examples
+
+::: {#refs}
+:::
