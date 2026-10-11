@@ -1,0 +1,99 @@
+# Builds and publishes dombunnett.github.io.
+#
+# 1. The hand-written pages are built with Jekyll exactly as GitHub Pages did
+#    before ("Deploy from a branch"): same action, same repository root.
+# 2. The zoo (Quarto sources in _zoo/, ignored by Jekyll because of the leading
+#    underscore) is rendered and copied to /zoo/.
+# 3. The combined site is deployed as one artifact, so nothing is replaced.
+#
+# Requires: Settings → Pages → Build and deployment → Source = "GitHub Actions".
+
+name: Build and deploy website
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Build the main website with Jekyll (as before)
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./
+          destination: ./_site
+
+      - name: Install Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          version: 1.10.18
+
+      - name: Render the zoo
+        run: |
+          quarto render _zoo
+          # Remove the empty placeholder pages Quarto leaves for drafts
+          quarto run _zoo/_assets/remove-drafts.ts _zoo/_site
+
+      - name: Add the zoo to the website under /zoo/
+        run: |
+          sudo mkdir -p _site/zoo
+          sudo cp -R _zoo/_site/. _site/zoo/
+
+      - name: Check the combined site
+        run: |
+          set -e
+          test -f _site/index.html          # main website present
+          test -f _site/zoo/index.html      # zoo index present
+          # No draft entry may appear in the published output.
+          for f in _zoo/*/index.qmd; do
+            d=$(basename "$(dirname "$f")")
+            case "$d" in _*) continue ;; esac
+            if grep -Eq '^draft:[[:space:]]*true' "$f"; then
+              if [ -e "_site/zoo/$d" ]; then
+                echo "::error::Draft entry '$d' leaked into the build"; exit 1
+              fi
+              echo "draft (not published): $d"
+            else
+              if ! grep -Eq '^date:[[:space:]]*[0-9]{4}-[0-9]{2}-[0-9]{2}' "$f"; then
+                echo "::error::Published entry '$d' has no date (add 'date: YYYY-MM-DD')"; exit 1
+              fi
+              if [ -f "_site/zoo/$d/index.html" ]; then
+                echo "published: /zoo/$d/"
+              else
+                echo "::error::Entry '$d' is not marked as a draft but was not rendered"; exit 1
+              fi
+            fi
+          done
+
+      - name: Upload the site
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./_site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
