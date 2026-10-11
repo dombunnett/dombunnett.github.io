@@ -6,3 +6,9 @@ cv/*.synctex.gz
 
 # Grant application CV — contains salary and contract details, keep out of the public repo
 cv/kt_boost_cv.*
+
+# Local Jekyll build output and installed Ruby packages
+_site/
+.jekyll-cache/
+vendor/
+.bundle/

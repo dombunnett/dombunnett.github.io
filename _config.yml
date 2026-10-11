@@ -1,0 +1,34 @@
+# Settings for Jekyll, the program GitHub uses to build this site.
+#
+# Only files that start with a "front matter" block (two lines of ---) are
+# processed by Jekyll. The hand-written pages (index.html, talks.html, ...) have
+# none, so they are copied to the live site exactly as they are.
+
+title: Dominic Bunnett
+url: https://dombunnett.github.io
+timezone: Europe/Berlin
+
+# Write posts in Markdown. Maths goes between double dollars, $$x^2$$, both
+# inline and on its own line; MathJax (loaded in _layouts/default.html) draws it.
+markdown: kramdown
+kramdown:
+  math_engine: mathjax
+
+# Every post in _posts/ gets the "post" layout and an address like
+# /blog/2026/10/running-a-local-llm/
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      permalink: /blog/:year/:month/:title/
+
+# Files in the repository that are not part of the website. (Listing "exclude"
+# replaces Jekyll's built-in list, so the usual entries are repeated here.)
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - preview          # the ./preview script for viewing the site locally
