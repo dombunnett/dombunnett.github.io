@@ -4,12 +4,10 @@ subtitle: "Sixteen points in the plane and a non-finitely generated invariant ri
 description: "How Nagata's theorem on plane curves produces a linear representation of a vector group whose invariant ring is not finitely generated."
 order: 10
 # Publication date (YYYY-MM-DD), shown on the cage. Set it to the day you publish.
-date: 2026-10-11
+date: 2026-10-12
 categories: [Invariant theory, Non-reductive groups, Counterexamples]
 nocite: |
   @nagata1965
-# Remove this line to publish the entry.
-draft: true
 ---
 
 An invariant ring consists of the polynomial functions that are constant along the orbits of a group action. Hilbert's fourteenth problem asks, in its invariant-theoretic form, whether such rings are always finitely generated: if an algebraic group $G$ acts linearly on a finite-dimensional vector space $V$ over a field $k$, is $k[V]^G$ a finitely generated $k$-algebra? For reductive groups acting on affine varieties the answer is yes. Hilbert proved this for the general linear group in characteristic zero; in general it follows from Nagata's theorem that geometrically reductive groups have finitely generated invariant rings [@nagata1963], together with Haboush's theorem that reductive groups are geometrically reductive [@haboush1975].
