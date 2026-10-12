@@ -38,8 +38,9 @@ it by hand.
    - `categories` — optional tags, e.g. `[finite generation, positive characteristic]`;
    - `author` — optional contributor credit;
    - `draft: true` — keep this until the entry is ready.
-3. Write the sections: Phenomenon, Setup, Construction, Verification or proof,
-   What this teaches, References and related examples.
+3. Write the sections: Phenomenon, Setup, Construction, Proof, Outro,
+   References and related examples. Name the proof section after what it proves,
+   e.g. "Proof of non-finite generation".
 
 Writing mathematics:
 

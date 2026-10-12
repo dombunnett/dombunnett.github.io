@@ -1,67 +1,90 @@
 ---
-# Draft entry. Will be published at /zoo/roberts/
-title: "Roberts' counterexample: a single additive group acting on affine 7-space"
-# One sentence, shown under the title here and in the zoo index.
-description: "A nonlinear action of the additive group on affine 7-space whose invariant ring is not finitely generated."
-# Position in the index: smaller numbers come first.
+title: "Roberts' counterexample to finite generation"
+description: "A nonlinear additive-group action on affine seven-space with a non-finitely generated invariant ring."
 order: 15
 # Publication date (YYYY-MM-DD), shown on the cage. Set it to the day you publish.
-date: 2026-10-11
+date: 2026-10-12
 categories: [Invariant theory, Non-reductive groups, Counterexamples]
-# Remove this line to publish the entry.
-draft: true
 ---
-
-::: {.callout-warning}
-## Draft — for completion
-This cage is a draft and is not published. The statements below are taken from
-Freudenburg's survey [@freudenburg2001, §3.1–3.2]; the proof and the discussion
-are still to be written. Check the details against Roberts' paper [@roberts1990]
-before publishing, then remove `draft: true` from the metadata above.
-:::
 
 ## Phenomenon
 
-Roberts gave a counterexample to Hilbert's fourteenth problem in which the group is a single copy of the additive group: the kernel of a certain locally nilpotent derivation of a polynomial ring in seven variables is not finitely generated [@roberts1990; @freudenburg2001, §3.1]. This kernel is the invariant ring of the corresponding action of $\mathbb G_a$ on $\mathbb A^7$. The action is not linear.
+A nonlinear action of the additive group $\mathbb G_a$ on $\mathbb A^7$ has a non-finitely generated ring of invariants [@roberts1990]. In contrast to [Nagata's counterexample](../nagata/index.qmd), the group is one-dimensional and the action is not linear.
 
 ## Setup
 
-- **Field and characteristic:** a field $F$ of characteristic $0$.
-- **Group:** $\mathbb G_a$.
-- **Variety:** $\mathbb A^7$, with coordinate ring $F[X,Y,Z,S,T,U,V]$.
-- **Action:** the exponential of the derivation $D$ below.
+Let $k$ be a field of characteristic zero and set
+$$
+B=k[x_1,x_2,x_3,y_1,y_2,y_3,z].
+$$
+For $t\in\mathbb G_a$, define
+$$
+\begin{aligned}
+t\cdot(x_1,x_2,x_3,y_1,y_2,y_3,z)
+=\bigl(&x_1,x_2,x_3,\\
+&y_1+tx_1^3,\ y_2+tx_2^3,\ y_3+tx_3^3,\\
+&z+t(x_1x_2x_3)^2\bigr).
+\end{aligned}
+$$
+Because the $x_i$ remain fixed, composing two such transformations adds their parameters. Thus this formula defines an algebraic group action.
+
+Its corresponding derivation is
+$$
+D=x_1^3\frac{\partial}{\partial y_1}
+ +x_2^3\frac{\partial}{\partial y_2}
+ +x_3^3\frac{\partial}{\partial y_3}
+ +(x_1x_2x_3)^2\frac{\partial}{\partial z}.
+$$
+It lowers total degree in $y_1,y_2,y_3,z$, so it is locally nilpotent: every polynomial is killed by some iterate of $D$. In characteristic zero, invariance is equivalent to being killed by this derivation. Roberts' theorem states that
+$$
+A:=B^{\mathbb G_a}=\ker D
+\quad\text{is not finitely generated over }k.
+$$
+See @roberts1990 for the original construction and @dufresne2015 [§9] for this formulation.
+
+Geometrically, the action translates each fibre of the projection to the three $x$-coordinates in a direction depending polynomially on the base point. Away from the origin of that base, the direction is nonzero. Over the origin, the whole fibre is fixed: the fixed-point locus is the affine four-space defined by $x_1=x_2=x_3=0$.
 
 ## Construction
 
-Fix an integer $t\ge2$ and let $D$ be the derivation of $F[X,Y,Z,S,T,U,V]$ given by
+The following polynomials are invariant:
 $$
-D=X^{t+1}\frac{\partial}{\partial S}+Y^{t+1}\frac{\partial}{\partial T}+Z^{t+1}\frac{\partial}{\partial U}+(XYZ)^t\frac{\partial}{\partial V}
+x_i,\qquad
+u_{ij}=x_i^3y_j-x_j^3y_i,\qquad
+b_i=x_i z-x_j^2x_k^2y_i,
 $$
-[@freudenburg2001, §3.1]. Then $D$ kills $X,Y,Z$, and $D^2$ kills every variable, so $s\in\mathbb G_a$ acts by
+where $\{i,j,k\}=\{1,2,3\}$ in the last expression. In each case, applying $D$ produces two terms that cancel.
+
+The proof below uses Roberts' existence lemma [@roberts1990, Lemma 3; @freudenburg2001, §3.3]: for every $n\geq0$, there is an invariant
 $$
-(X,Y,Z,S,T,U,V)\longmapsto\bigl(X,\;Y,\;Z,\;S+sX^{t+1},\;T+sY^{t+1},\;U+sZ^{t+1},\;V+s(XYZ)^t\bigr),
+\beta_n=x_1z^n+\text{terms of lower }z\text{-degree}.
 $$
-and the invariant ring is $\ker D$.
+The lemma is used without proof.
 
-<!-- TO WRITE. Notes from the survey (check against the sources):
-     - Roberts' example arose from symbolic blow-ups and Hochster's monomial conjecture;
-       he first gave a counterexample in a complete regular local ring, then the
-       polynomial version.
-     - Deveney–Finston and A'Campo-Neuen independently recognised ker D as the
-       invariant ring of a G_a-action on A^7.
-     - A'Campo-Neuen turned it into a linear action of G_a^12 on A^19.
-     - Freudenburg §3.3: Roberts' Lemma 3 gives homogeneous kernel elements
-       f_n = X V^n + (lower terms in V); possible approach via the Dixmier map. -->
+## Proof of non-finite generation
 
-## Verification or proof
+Set $I=(x_1,x_2,x_3)B$. First, every invariant is constant modulo $I$. To see this, take $f\in A$ and write its part of total $x$-degree zero as $f_0(y_1,y_2,y_3,z)$. The part of $Df=0$ of $x$-degree three gives
+$$
+\sum_{i=1}^3x_i^3\frac{\partial f_0}{\partial y_i}=0.
+$$
+Hence $f_0$ is independent of the $y_i$. Next compare the coefficient of $x_1^2x_2^2x_3^2$ in $Df$. Contributions from the $y_i$-derivatives are divisible by some $x_i^3$, so this coefficient is precisely $\partial f_0/\partial z$. It also vanishes, and characteristic zero implies $f_0\in k$.
 
-TO WRITE.
+Now suppose $A$ had finitely many algebra generators. Subtracting their constants gives generators $g_1,\ldots,g_r\in I$. Modulo $I^2$, every polynomial in these generators is a constant plus a linear combination of their images: all products of two generators vanish.
 
-## What this teaches
+Consequently, the image of $A$ in $B/I^2$ would be finite-dimensional over $k$. But the images of the $\beta_n$ are linearly independent. In any finite relation, the term with largest index has a unique highest power of $z$, with nonzero coefficient $x_1$ modulo $I^2$. This is a contradiction.
 
-TO WRITE. Starting point: by Weitzenböck's theorem, a *linear* action of $\mathbb G_a$ in characteristic zero always has a finitely generated invariant ring [@freudenburg2001, §1]. Roberts' example shows that this fails for nonlinear actions, already on $\mathbb A^7$.
+The argument shows that the $\beta_n$ remain linearly independent modulo $I^2$, where products of invariants lying in $I$ vanish.
+
+## Outro
+
+In characteristic zero, Weitzenböck's theorem gives finite generation for every linear $\mathbb G_a$-action [@freudenburg2001, §1]. Roberts' example therefore cannot be made linear by a polynomial change of coordinates.
 
 ## References and related examples
+
+Roberts published the example in 1990; it arose from his work on symbolic blow-ups [@roberts1990; @freudenburg2001, §3.1]. The additive-group interpretation was recognised independently by A'Campo-Neuen and by Deveney and Finston [@acampo1994; @deveney1994; @freudenburg2001, §3.1]. A'Campo-Neuen also used Roberts' example to obtain a linear action of $\mathbb G_a^{12}$ on $\mathbb A^{19}$ with a non-finitely generated invariant ring [@acampo1994; @freudenburg2001, §2.2].
+
+Kojima and Miyanishi gave a family of counterexamples in higher odd dimensions: for each $n\geq3$ and $t\geq2$, the derivation of $k[x_1,\ldots,x_n,y_1,\ldots,y_n,z]$ with $D(x_i)=0$, $D(y_i)=x_i^{t+1}$ and $D(z)=(x_1\cdots x_n)^t$ has a non-finitely generated kernel [@kojima1997; @freudenburg2001, §3.2].
+
+Freudenburg's survey [@freudenburg2001] describes the history of these examples, and Dufresne and Kraft discuss the action in @dufresne2015 [§9].
 
 ::: {#refs}
 :::

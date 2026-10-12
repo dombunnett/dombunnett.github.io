@@ -40,9 +40,9 @@ A concise statement of what happens.
      Proofs:                ::: {.proof} ... :::
      Numbered equations:    $$ ... $$ {#eq-label}   referenced with @eq-label. -->
 
-## Verification or proof
+## Proof
 
-## What this teaches
+## Outro
 
 The precise expectation or theorem whose hypotheses matter, and which hypothesis fails here.
 

@@ -245,7 +245,7 @@ Give the piece of bidegree $(d,m)$ the degree $\delta=d-4m$. Every nonconstant h
 The nonzero pieces $L(4m+1,m)$ give an infinite-dimensional degree-one part. In a finitely generated positively graded algebra with degree-zero part $k$, the degree-one part is spanned by the finitely many degree-one generators: products of two positive-degree elements cannot contribute. This is again a contradiction.
 :::
 
-## What this teaches
+## Outro
 
 The reductive finite-generation theorem cannot be extended to arbitrary linear algebraic groups, even for linear actions on affine space. Yet non-reductivity does not itself force failure: by Weitzenböck's theorem, a single $\mathbb G_a$ acting linearly in characteristic zero has a finitely generated invariant ring [@freudenburg2001, §1].
 
