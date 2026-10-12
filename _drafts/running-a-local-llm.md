@@ -56,3 +56,5 @@ ollama run qwen3.5:9b
 ```
 
 opens a chat in the terminal.
+
+Next, I’m going to learn Lean. Autoformalisation clearly still needs human checking, as the recent story of the Navier-Stokes shows: [Bastounis, Circelli and Hansen](https://arxiv.org/abs/2610.08144). That will be the subject of the next post.
