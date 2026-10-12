@@ -1,6 +1,6 @@
 ---
 title: "Buying chalk from BAE Systems"
-description: I'm running a language model on my laptop, with on 16GB of memory and it's fine.
+description: I'm running a language model on my laptop, with only 16GB of memory, and it's fine.
 ---
 
 After OpenAI’s most recent “math dump”, I realised, along with many of my colleagues, that the way we do research mathematics is going to change fundamentally. Listening to an interview with the Fields medallist Martin Hairer also brought home how little reason we have to expect the current honeymoon period to last. OpenAI has already announced an increase from US$200 to US$500 a month for its Pro service, alongside usage cuts for lower tiers. Becoming dependent on these tools means becoming dependent on companies that can change the terms of access whenever they choose.
@@ -57,4 +57,4 @@ ollama run qwen3.5:9b
 
 opens a chat in the terminal.
 
-Next, I’m going to learn Lean. Autoformalisation clearly still needs human checking, as the recent story of the Navier-Stokes shows: [Bastounis, Circelli and Hansen](https://arxiv.org/abs/2610.08144). That will be the subject of the next post.
+Next, I’m going to learn Lean. Autoformalisation clearly still needs human checking, as the recent story of Navier–Stokes shows: [Bastounis, Circelli and Hansen](https://arxiv.org/abs/2610.08144). That will be the subject of the next post.
