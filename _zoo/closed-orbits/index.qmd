@@ -5,8 +5,8 @@ order: 30
 # Publication date (YYYY-MM-DD), shown on the cage. Set it to the day you publish.
 date: 2026-10-14
 categories: [Invariant theory, Non-reductive groups, Orbit closures]
-# Remove this line to publish the entry.
-draft: true
+# Set to true to keep the entry off the website.
+draft: false
 ---
 
 ## Phenomenon
@@ -62,6 +62,8 @@ These are disjoint closed affine lines. Conjugation by $u(s)=\begin{pmatrix}1&s\
 The two closed orbits $L_+$ and $L_-$ are not separated by invariants. Every invariant is constant on the orbit $B\cdot A$, hence by continuity on its closure $Q$, which contains both $L_+$ and $L_-$.
 
 The same configuration, two distinct closed orbits in one orbit closure, occurs in the quotient stack $[\mathbb P^1/\mathbb G_m]$ [@alper2013, Example 8.4]. Here $[Q/B]\simeq[\mathbb P^1/T]$, with $T$ acting with weight $2$ on an affine coordinate; the effective action is the usual $\mathbb G_m$-action. In the present example the configuration occurs in a linear representation.
+
+All stabilisers of points of $Q$ are linearly reductive, as in $[\mathbb P^1/\mathbb G_m]$.
 
 ## References and related examples
 
