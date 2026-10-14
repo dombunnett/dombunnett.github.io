@@ -10,8 +10,9 @@ order: 20
 date: 2026-10-11
 # Optional tags (shown in the index and on the page). Delete the line if unused.
 categories: []
-# Optional author / contributor credit. Delete the line if unused.
-# author: "Name"
+# Who contributed the example, e.g. contributor: "Jane Doe". Leave as "" for your own;
+# otherwise it is shown as "Contributed by ..." on the cage and in the index.
+contributor: ""
 # Remove this line (or set it to false) to publish the entry.
 draft: true
 ---

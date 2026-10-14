@@ -7,7 +7,7 @@ listing:
   contents: "*/index.qmd"
   template: _assets/zoo-listing.ejs
   sort: "order"
-  fields: [title, description, categories, order]
+  fields: [title, description, categories, order, contributor]
 ---
 
 <!-- Edit the introduction below. The list of examples is generated automatically
@@ -15,7 +15,9 @@ listing:
 
 A collection of examples and curious phenomena in non-reductive group actions and invariant theory.
 
-Each cage below houses one example.
+The cages below are examples I have had lying around for a while. I write each one up in LaTeX, and an AI tool turns the file into a Quarto page and adds it to the zoo.
+
+If you have an example that deserves to be housed here, please email me at bunnett at math.tu-berlin.de.
 
 ::: {#zoo-entries}
 :::

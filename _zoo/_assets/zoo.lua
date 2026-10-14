@@ -33,6 +33,17 @@ function Pandoc(doc)
     crumbs = '<div class="zoo-crumbs"><a href="' .. home .. 'index.html">Dominic Bunnett</a> › <a href="' .. zoo .. '">The non-reductive zoo</a></div>'
     doc.blocks:insert(pandoc.RawBlock("html",
       '<p class="zoo-back"><a href="' .. zoo .. '">← Back to the non-reductive zoo</a></p>'))
+    -- "Contributed by ..." under the title, only when `contributor:` is filled in.
+    local c = doc.meta["contributor"]
+    if c ~= nil and pandoc.utils.stringify(c) ~= "" then
+      local line = pandoc.Inlines{pandoc.Str("Contributed"), pandoc.Space(), pandoc.Str("by"), pandoc.Space()}
+      if pandoc.utils.type(c) == "Inlines" then
+        line:extend(c)
+      else
+        line:insert(pandoc.Str(pandoc.utils.stringify(c)))
+      end
+      doc.blocks:insert(1, pandoc.Div(pandoc.Para(line), pandoc.Attr("", {"zoo-contributor"})))
+    end
   end
   quarto.doc.include_text("before-body", nav(home, zoo) .. crumbs)
   return doc

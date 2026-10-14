@@ -36,7 +36,8 @@ it by hand.
    - `date` — publication date, `YYYY-MM-DD`, shown on the cage (set it when you publish;
      the build refuses to publish a cage without one);
    - `categories` — optional tags, e.g. `[finite generation, positive characteristic]`;
-   - `author` — optional contributor credit;
+   - `contributor` — who contributed the example. Leave it as `""` for your own;
+     otherwise "Contributed by …" appears on the cage and in the index;
    - `draft: true` — keep this until the entry is ready.
 3. Write the sections: Phenomenon, Setup, Construction, Proof, Outro,
    References and related examples. Name the proof section after what it proves,
