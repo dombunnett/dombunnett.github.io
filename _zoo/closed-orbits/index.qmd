@@ -1,55 +1,73 @@
 ---
-# ---- Metadata --------------------------------------------------------------
-# Draft entry. Will be published at /zoo/closed-orbits/
-title: "More than one closed orbit in an orbit closure"
-# One sentence, shown under the title here and in the zoo index.
-description: "ONE-LINE DESCRIPTION FOR THE INDEX."
-# Position in the index: smaller numbers come first (leave gaps: 10, 20, 30, ...).
+title: "Two closed orbits in one orbit closure"
+description: "A linear action of the Borel subgroup of SL(2) on its Lie algebra with an orbit closure containing two closed orbits."
 order: 30
 # Publication date (YYYY-MM-DD), shown on the cage. Set it to the day you publish.
-date: 2026-10-11
-# Optional tags (shown in the index and on the page). Delete the line if unused.
-categories: []
-# Optional author / contributor credit. Delete the line if unused.
-# author: "Name"
-# Remove this line (or set it to false) to publish the entry.
+date: 2026-10-14
+categories: [Invariant theory, Non-reductive groups, Orbit closures]
+# Remove this line to publish the entry.
 draft: true
 ---
 
-::: {.callout-warning}
-## Draft — for completion
-This entry is a draft and is not published. Replace every CAPITALISED placeholder,
-then remove `draft: true` from the metadata above.
-:::
-
 ## Phenomenon
 
-A concise statement of what happens.
+Every orbit closure contains a closed orbit. For a reductive group acting on an affine variety, disjoint closed invariant subsets are separated by invariants [@mumford1965, Ch. 1, §2]. Since an invariant is constant on each orbit, and hence on its closure, every orbit closure then contains exactly one closed orbit. For a unipotent group acting on an affine variety, every orbit is closed [@rosenlicht1961], so every orbit closure is a single orbit. In neither case can an orbit closure contain two closed orbits.
+
+The Borel subgroup of $\mathrm{SL}_2$ is neither reductive nor unipotent. It acts linearly on $\mathfrak{sl}_2$ with an orbit closure containing two closed orbits.
 
 ## Setup
 
-- **Field and characteristic:** 
-- **Group:** 
-- **Variety or representation:** 
-- **Action:** 
+- **Field and characteristic:** an algebraically closed field $k$ of characteristic zero. The computations below use only that the characteristic is not $2$.
+- **Group:** the upper triangular Borel subgroup
+$$
+B=\left\{\begin{pmatrix}a&t\\0&a^{-1}\end{pmatrix}:a\in k^*,\ t\in k\right\}
+\subset \mathrm{SL}_2 .
+$$
+- **Representation:** $V=\mathfrak{sl}_2$, with coordinates
+$$
+X=\begin{pmatrix}x&y\\z&-x\end{pmatrix}.
+$$
+- **Action:** conjugation.
 
 ## Construction
 
-<!-- Theorem-like blocks:  ::: {#thm-label} ... :::   (also lem-, prp-, cor-, def-, exm-, rem-)
-     Referenced with @thm-label.
-     Proofs:                ::: {.proof} ... :::
-     Numbered equations:    $$ ... $$ {#eq-label}   referenced with @eq-label. -->
+The polynomial $q=x^2+yz=-\det(X)$ is invariant. Put
+$$
+A=\begin{pmatrix}0&1\\1&0\end{pmatrix}.
+$$
+Direct calculation gives
+$$
+\begin{pmatrix}a&t\\0&a^{-1}\end{pmatrix}
+A
+\begin{pmatrix}a&t\\0&a^{-1}\end{pmatrix}^{-1}
+=\begin{pmatrix}t/a&a^2-t^2\\a^{-2}&-t/a\end{pmatrix}.
+$$
+Thus
+$$
+B\cdot A=\{x^2+yz=1,\ z\ne0\}.
+$$
+Indeed, given a point on the right, choose $a$ with $a^{-2}=z$ and put $t=ax$; the equation then forces $y=a^2-t^2$. Since this is a nonempty open subset of the irreducible quadric $Q=\{x^2+yz=1\}$, its closure is all of $Q$.
 
-## Proof
+## Proof of the orbit decomposition
+
+Setting $z=0$ gives $x=\pm1$, so
+$$
+Q\setminus(B\cdot A)=L_+\sqcup L_-,\qquad
+L_\pm=\left\{\begin{pmatrix}\pm1&y\\0&\mp1\end{pmatrix}:y\in k\right\}.
+$$
+These are disjoint closed affine lines. Conjugation by $u(s)=\begin{pmatrix}1&s\\0&1\end{pmatrix}$ sends $y$ to $y-2s$ on $L_+$ and to $y+2s$ on $L_-$. Each line is therefore a single $B$-orbit. The orbit closure $Q$ has exactly three orbits: one open orbit and two disjoint closed orbits.
 
 ## Outro
 
-The precise expectation or theorem whose hypotheses matter, and which hypothesis fails here.
+The two closed orbits $L_+$ and $L_-$ are not separated by invariants. Every invariant is constant on the orbit $B\cdot A$, hence by continuity on its closure $Q$, which contains both $L_+$ and $L_-$.
+
+The same configuration, two distinct closed orbits in one orbit closure, occurs in the quotient stack $[\mathbb P^1/\mathbb G_m]$ [@alper2013, Example 8.4]. Here $[Q/B]\simeq[\mathbb P^1/T]$, with $T$ acting with weight $2$ on an affine coordinate; the effective action is the usual $\mathbb G_m$-action. In the present example the configuration occurs in a linear representation.
 
 ## References and related examples
 
-<!-- Cite with [@key] using entries in _zoo/references.bib.
-     Link to other zoo entries with relative links, e.g. [Nagata](../nagata/index.qmd). -->
+Gandini describes this three-orbit decomposition on $\mathrm{SL}_2/T$ [@gandini2018, Example 3.3]. The identification with $Q$ is $gT\mapsto g\operatorname{diag}(1,-1)g^{-1}$.
+
+Kraft, crediting tom Dieck, describes the quadric $\mathrm{SL}_2/T$ as a principal $\mathbb G_a$-bundle over the affine line with a doubled origin: the quotient by the upper unitriangular subgroup $U\subset B$ [@kraft1996, §3].
 
 ::: {#refs}
 :::
