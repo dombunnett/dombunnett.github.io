@@ -10,7 +10,7 @@ local function nav(home, zoo)
     { "Zoo", zoo },
     { "Talks", home .. "talks.html" },
     { "Teaching", home .. "teaching.html" },
-    { "Africa &amp; outreach", home .. "outreach.html" },
+    { "Research development", home .. "outreach.html" },
     { "Writing", home .. "writing.html" },
     { "Blog", home .. "blog/" },
   }
