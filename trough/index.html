@@ -1,0 +1,26 @@
+---
+layout: default
+title: The Trough
+description: Dominic Bunnett — The Trough
+---
+<h2>The Trough</h2>
+<p>Where the slop goes. Notes, write-ups and a seminar on what language models are doing to mathematics.</p>
+
+<div class="seminar-box">
+    <h3>This Week in Slop</h3>
+    <p>A seminar at TU Berlin. Each session, someone presents one of the latest &lsquo;huge mathematical developments&rsquo; in an area close to our hearts, and we work out what has actually been done.</p>
+    <p><b>When and where:</b> to be announced.</p>
+</div>
+
+<h2>Posts</h2>
+<ul class="post-list">
+{% for post in site.posts %}
+    <li>
+        <span class="post-date">{{ post.date | date: "%-d %b %Y" }}</span>
+        <a href="{{ post.url }}"><b>{{ post.title }}</b></a>
+        {% if post.description %}<span class="post-summary">{{ post.description }}</span>{% endif %}
+    </li>
+{% else %}
+    <li>No posts yet.</li>
+{% endfor %}
+</ul>

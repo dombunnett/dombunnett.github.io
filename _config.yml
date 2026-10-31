@@ -15,14 +15,14 @@ kramdown:
   math_engine: mathjax
 
 # Every post in _posts/ gets the "post" layout and an address like
-# /blog/2026/10/running-a-local-llm/
+# /trough/2026/10/running-a-local-llm/ (the posts live in The Trough).
 defaults:
   - scope:
       path: ""
       type: posts
     values:
       layout: post
-      permalink: /blog/:year/:month/:title/
+      permalink: /trough/:year/:month/:title/
 
 # Files in the repository that are not part of the website. (Listing "exclude"
 # replaces Jekyll's built-in list, so the usual entries are repeated here.)

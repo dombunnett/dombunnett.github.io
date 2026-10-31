@@ -12,7 +12,7 @@ local function nav(home, zoo)
     { "Teaching", home .. "teaching.html" },
     { "Research development", home .. "outreach.html" },
     { "Writing", home .. "writing.html" },
-    { "Blog", home .. "blog/" },
+    { "The Trough", home .. "trough/" },
   }
   local links = {}
   for _, it in ipairs(items) do
