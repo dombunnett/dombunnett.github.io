@@ -1,14 +1,13 @@
 -- Adds the site-wide navigation bar, a breadcrumb and a back link to every zoo page.
 -- All links are computed relative to the page, so they are correct under /zoo/ on
--- the live site at any nesting depth. (Root-relative links such as "/talks.html"
+-- the live site at any nesting depth. (Root-relative links such as "/research.html"
 -- would be rewritten by Quarto to point inside the zoo, so they are not used.)
 
 local function nav(home, zoo)
   local items = {
     { "Home", home .. "index.html" },
-    { "Research", home .. "index.html#research" },
+    { "Research", home .. "research.html" },
     { "Zoo", zoo },
-    { "Talks", home .. "talks.html" },
     { "Teaching", home .. "teaching.html" },
     { "Research development", home .. "outreach.html" },
     { "Writing", home .. "writing.html" },
