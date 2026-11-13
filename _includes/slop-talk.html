@@ -1,0 +1,29 @@
+{%- comment -%}
+  One talk on the This Week in Slop page. Called with: include slop-talk.html talk=talk
+{%- endcomment -%}
+{%- assign t = include.talk -%}
+<article class="talk">
+    <div class="talk-when">
+        {%- if t.date -%}
+            <span class="talk-date">{{ t.date | date: "%a %-d %b %Y" }}</span>
+            {%- if t.time %}<br>{{ t.time }}{% endif -%}
+            {%- if t.room %}<br>{{ t.room }}{% endif -%}
+        {%- else -%}
+            <span class="talk-date">Date to be announced</span>
+        {%- endif -%}
+    </div>
+    <div class="talk-body">
+        <div class="talk-title">{{ t.title }}</div>
+        <div class="talk-speaker">{{ t.speaker }}{% if t.affiliation %} <span class="talk-aff">({{ t.affiliation }})</span>{% endif %}{% if t.format %} <span class="talk-format">{{ t.format }}</span>{% endif %}</div>
+        {%- if t.abstract or t.links or t.outcome %}
+        <details>
+            <summary>Abstract{% if t.links %} and links{% endif %}</summary>
+            {%- if t.abstract %}<p>{{ t.abstract }}</p>{% endif -%}
+            {%- if t.links %}
+            <p class="talk-links">{% for l in t.links %}<a href="{{ l.url }}">{{ l.label }}</a>{% unless forloop.last %} · {% endunless %}{% endfor %}</p>
+            {%- endif -%}
+            {%- if t.outcome %}<p><b>Outcome:</b> {{ t.outcome }}</p>{% endif -%}
+        </details>
+        {%- endif %}
+    </div>
+</article>

@@ -1,10 +1,17 @@
+---
+# A standalone page: no site layout, so none of the dombunnett.github.io
+# navigation. The talks come from _data/slop_talks.yml.
+layout: null
+---
+{%- assign today = site.time | date: "%Y%m%d" | plus: 0 -%}
+{%- assign talks = site.data.slop_talks | sort: "date", "last" -%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="This Week in Slop — a seminar on the mathematics done by AI">
-    <title>This Week in Slop</title>
+    <meta name="description" content="This Week in Slop — a seminar on the mathematics done by AI, at the Institut für Mathematik, TU Berlin">
+    <title>This Week in Slop — a seminar on the mathematics done by AI</title>
     <style>
 body {
     margin: 0;
@@ -14,49 +21,167 @@ body {
     font-size: 18px;
     line-height: 1.6;
 }
+a { color: #1f4e79; }
+a:hover { color: #000; }
 header {
     background: #3a3a3a;
     color: #fff;
-    padding: 48px 20px 40px;
+    padding: 44px 20px 36px;
     text-align: center;
 }
 header h1 { margin: 0; font-size: 2.4rem; font-weight: normal; letter-spacing: 0.02em; }
-header p { margin: 8px 0 0; font-style: italic; color: #ddd; }
-main { max-width: 40rem; margin: 0 auto; padding: 36px 20px 60px; }
-figure { margin: 0 auto 32px; text-align: center; }
-figure img { max-width: 360px; width: 100%; height: auto; border: 1px solid #ccc; }
-figcaption { font-size: 0.8rem; color: #666; margin-top: 8px; line-height: 1.4; }
-.highlight {
+header .tagline { margin: 6px 0 0; font-style: italic; color: #ddd; }
+header .org { margin: 14px 0 0; font-size: 0.9rem; color: #bbb; }
+nav.sections {
+    background: #efede6;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+    padding: 10px 20px;
+    font-size: 0.95rem;
+}
+nav.sections a { margin: 0 14px; text-decoration: none; }
+main { max-width: 44rem; margin: 0 auto; padding: 28px 20px 40px; }
+h2 {
+    font-weight: normal;
+    font-size: 1.5rem;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 4px;
+    margin: 44px 0 18px;
+}
+.facts {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 4px 20px;
     background: #efede6;
     border-left: 4px solid #3a3a3a;
     padding: 14px 18px;
-    margin: 28px 0;
+    margin: 8px 0 0;
+}
+.facts dt { font-weight: bold; }
+.facts dd { margin: 0; }
+.talk {
+    display: grid;
+    grid-template-columns: 9.5rem 1fr;
+    gap: 0 20px;
+    padding: 14px 0;
+    border-bottom: 1px solid #e3e1da;
+}
+.talk-when { color: #555; font-size: 0.9rem; line-height: 1.5; }
+.talk-date { font-weight: bold; color: #222; }
+.talk-title { font-weight: bold; }
+.talk-aff { color: #555; }
+.talk-format {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    border: 1px solid #aaa;
+    border-radius: 3px;
+    padding: 0 5px;
+    margin-left: 6px;
+    color: #555;
+    vertical-align: 2px;
+}
+details { margin-top: 6px; font-size: 0.95rem; }
+summary { cursor: pointer; color: #1f4e79; }
+.empty { color: #777; font-style: italic; }
+figure { float: right; width: 220px; margin: 4px 0 12px 24px; text-align: center; }
+figure img { width: 100%; height: auto; border: 1px solid #ccc; }
+figcaption { font-size: 0.72rem; color: #666; margin-top: 6px; line-height: 1.35; text-align: left; }
+.clear { clear: both; }
+ul.formats li { margin-bottom: 6px; }
+.ph { color: #c00; font-weight: bold; }
+footer {
+    border-top: 1px solid #ddd;
+    color: #777;
+    font-size: 0.85rem;
+    text-align: center;
+    padding: 20px;
+}
+@media (max-width: 600px) {
+    .talk { grid-template-columns: 1fr; }
+    figure { float: none; margin: 0 auto 16px; }
 }
     </style>
 </head>
 <body>
     <header>
         <h1>This Week in Slop</h1>
-        <p>A seminar on the mathematics done by AI</p>
+        <p class="tagline">A seminar on the mathematics done by AI</p>
+        <p class="org">Organised by Rosa Preiss and Dominic Bunnett · Institut für Mathematik, TU Berlin</p>
     </header>
+    <nav class="sections">
+        <a href="#talks">Talks</a>
+        <a href="#about">About</a>
+        <a href="#speak">Give a talk</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
     <main>
+        <dl class="facts">
+            <dt>When</dt>  <dd><span class="ph">[TO CONFIRM: day and time]</span></dd>
+            <dt>Where</dt> <dd><span class="ph">[TO CONFIRM: room]</span>, TU Berlin</dd>
+            <dt>How often</dt> <dd><span class="ph">[TO CONFIRM: frequency]</span></dd>
+            <dt>Mailing list</dt> <dd><span class="ph">[TO CONFIRM: how to subscribe]</span></dd>
+        </dl>
+
+        <h2 id="talks">Upcoming talks</h2>
+        {%- assign n = 0 -%}
+        {%- for talk in talks -%}
+            {%- assign d = talk.date | date: "%Y%m%d" | plus: 0 -%}
+            {%- if talk.date == nil or d >= today -%}
+                {%- assign n = n | plus: 1 -%}
+                {% include slop-talk.html talk=talk %}
+            {%- endif -%}
+        {%- endfor -%}
+        {%- if n == 0 %}
+        <p class="empty">No talks scheduled at the moment. <a href="#speak">Why not give one?</a></p>
+        {%- endif %}
+
+        <h2>Past talks</h2>
+        {%- assign n = 0 -%}
+        {%- assign past = talks | reverse -%}
+        {%- for talk in past -%}
+            {%- if talk.date -%}
+                {%- assign d = talk.date | date: "%Y%m%d" | plus: 0 -%}
+                {%- if d < today -%}
+                    {%- assign n = n | plus: 1 -%}
+                    {% include slop-talk.html talk=talk %}
+                {%- endif -%}
+            {%- endif -%}
+        {%- endfor -%}
+        {%- if n == 0 %}
+        <p class="empty">None yet.</p>
+        {%- endif %}
+
+        <h2 id="about">About</h2>
         <figure>
             <img src="prodigal-son.jpg" alt="Pen drawing: the Prodigal Son kneeling in prayer beside a trough while pigs feed">
-            <figcaption>Pieter Holsteyn the Younger, <i>Der Verlorene Sohn bei den Schweinen</i> (The Prodigal Son among the Swine), pen in grey and black. <a href="https://sammlungenonline.albertina.at/objects/31206/der-verlorene-sohn-bei-den-schweinen">ALBERTINA, Wien</a>, Inv. 10356. Public domain.</figcaption>
+            <figcaption>Pieter Holsteyn the Younger, <i>Der Verlorene Sohn bei den Schweinen</i>, pen in grey and black. <a href="https://sammlungenonline.albertina.at/objects/31206/der-verlorene-sohn-bei-den-schweinen">ALBERTINA, Wien</a>, Inv.&nbsp;10356. Public domain.</figcaption>
         </figure>
-        <p>Given the ongoing onslaught of important results being proven by LLMs, we want to set up a seminar / space for those of us who care about the results to discuss and digest them, as well as to talk about how to deal with this. It seems a shame to let the new and amazing ideas get lost in the tidal wave.</p>
+        <p>Given the ongoing onslaught of important results being proven by LLMs, we want a space for those of us who care about the results to discuss and digest them, and to talk about how to deal with this. It seems a shame to let the new and amazing ideas get lost in the tidal wave.</p>
+        <p>There are many philosophy-focused AI &amp; maths seminars, and we both love them and recognise their importance. By contrast, the goal of this seminar is practical. Beyond individual results, we want to make room for discussion: how refereeing, teaching, supervision and our own research should adapt, taking first steps towards self-hosting open-weight LLMs, and how we, as a community, are going to react to all of this.</p>
+        <div class="clear"></div>
 
-        <p>We are aware of many philosophy-focused AI &amp; maths seminars, and we both love them and recognise their importance. By contrast, the goal of our seminar is to get practical and get into action.</p>
+        <h2 id="speak">Give a talk</h2>
+        <p>We invite contributed talks from anyone &ndash; students, postdocs, faculty, practitioners. Informal formats are very welcome. A session might be:</p>
+        <ul class="formats">
+            <li><b>Dissection</b> &ndash; a careful look at a single claim: what was asserted, what was actually proved, and what is new.</li>
+            <li><b>Survey</b> &ndash; a broader view of AI output in a subject area.</li>
+            <li><b>Discussion</b> &ndash; a discussion-led session on how a field should respond.</li>
+            <li><b>Workshop</b> &ndash; a hands-on session.</li>
+        </ul>
+        <p>To propose a talk, or if you have a candidate piece of slop you&rsquo;d like someone to look at, write to the organisers with a link to the claim and a line or two on why it is interesting.</p>
 
-        <p>Beyond individual results, we want to make room for discussion: how refereeing, teaching, supervision and our own research should adapt, taking first steps towards self-hosting open-weight LLMs, and how we, as a community, are going to react to all of this.</p>
-
-        <p>We invite contributed talks from anyone &ndash; students, postdocs, faculty, practitioners. Talks can be careful dissections of a single claim, broader surveys of AI output in a subject area, discussion-led sessions on how that field should respond, or hands-on workshop sessions. Informal formats are very welcome.</p>
-
-        <div class="highlight">
-            Dominic Bunnett will kick things off with a talk on Michałek&rsquo;s recent AI-generated proof of Oda&rsquo;s conjecture for smooth lattice polytopes in dimension 3.
-        </div>
-
-        <p>If you&rsquo;d like to give a talk, or have a candidate piece of slop you&rsquo;d like someone to look at, please get in touch with Rosa Preiss or Dominic Bunnett. If you would like to take part, please get in touch with us and we will find a suitable time.</p>
+        <h2 id="contact">Contact</h2>
+        <p>If you would like to take part, give a talk, or suggest something for us to look at, get in touch with the organisers:</p>
+        <ul>
+            <li>Rosa Preiss (<span class="ph">[TO CONFIRM: Rosa&rsquo;s affiliation]</span>) &ndash; <span class="ph">[TO CONFIRM: Rosa&rsquo;s email]</span></li>
+            <li>Dominic Bunnett (TU Berlin) &ndash; <span class="ph">[TO CONFIRM: Dominic&rsquo;s email]</span></li>
+        </ul>
     </main>
+
+    <footer>
+        This Week in Slop · Institut für Mathematik, TU Berlin · Last updated {{ site.time | date: "%-d %B %Y" }}
+    </footer>
 </body>
 </html>

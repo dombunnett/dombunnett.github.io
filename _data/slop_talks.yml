@@ -1,0 +1,33 @@
+# Talks for the "This Week in Slop" seminar page (theweekinslop/index.html).
+#
+# One entry per talk. The page sorts them by date and puts each talk under
+# "Upcoming" or "Past" automatically (as of the last time the site was built).
+# Leave `date` empty for a talk whose date isn't fixed yet: it is listed under
+# Upcoming as "date to be announced".
+#
+# Fields (all optional except speaker and title):
+#   date:        2026-12-03            (YYYY-MM-DD)
+#   time:        "14:15"               (only if it differs from the usual time)
+#   room:        "MA 313"              (only if it differs from the usual room)
+#   speaker:     Name
+#   affiliation: TU Berlin
+#   title:       Talk title
+#   format:      Dissection | Survey | Discussion | Workshop
+#   abstract: >
+#     Abstract text. HTML is allowed, e.g. <a href="...">links</a>.
+#   links:                             (the claim under discussion, slides, notes ...)
+#     - label: arXiv
+#       url: https://arxiv.org/abs/...
+#   outcome: >
+#     For past talks: a sentence or two on what was found.
+
+- date:
+  speaker: Dominic Bunnett
+  affiliation: TU Berlin
+  title: Michałek’s AI-generated proof of Oda’s conjecture for smooth lattice polytopes in dimension 3
+  format: Dissection
+  abstract: >
+    <span class="ph">[TO CONFIRM: abstract]</span>
+  links:
+    - label: '<span class="ph">[TO CONFIRM: link to the claim / preprint]</span>'
+      url: "#"
