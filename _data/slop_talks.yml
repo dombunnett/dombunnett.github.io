@@ -27,7 +27,7 @@
   title: Michałek’s AI-generated proof of Oda’s conjecture for smooth lattice polytopes in dimension 3
   format: Dissection
   abstract: >
-    We discuss Michałek's proof that every smooth lattice 3-polytope is normal, settling Oda's normality question in dimension three. According to the paper's preface, the article is AI-generated apart from the preface itself, with the decisive part of the proof found by an AI model.
+    We discuss Michałek's proof that every smooth lattice 3-polytope is normal, settling Oda's normality question in dimension three. According to the paper's preface, the article is AI-generated apart from the preface itself.
   links:
     - label: "M. Michałek, Normality of smooth lattice three-polytopes (PDF)"
       url: https://www.math.uni-konstanz.de/~michalek/oda_normality.pdf
