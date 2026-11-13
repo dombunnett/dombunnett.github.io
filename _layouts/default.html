@@ -47,17 +47,46 @@ h2 {
 }
 
 /* The Trough */
-.seminar-box {
-    background: #eceeee;
-    border-left: 3px solid #2F4F4F;
-    padding: 12px 16px 2px;
-    margin: 20px 0 28px;
+.trough-hero {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+    margin: 8px 0 32px;
 }
-.seminar-box h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 8px; }
-.post-list { list-style: none; padding-left: 0; }
-.post-list li { margin-bottom: 18px; }
-.post-date { color: #777; margin-right: 10px; }
-.post-summary { color: #555; display: block; margin-top: 2px; }
+.trough-figure { flex: 0 0 300px; margin: 0; }
+.trough-figure img { width: 100%; height: auto; border: 1px solid #ccc; }
+.trough-figure figcaption { font-size: 12px; color: #777; margin-top: 6px; line-height: 1.35; }
+.trough-intro { flex: 1; }
+.trough-title { font-size: 2.6rem; font-weight: 700; margin-bottom: 4px; }
+.trough-lede { font-size: 1.3rem; font-style: italic; color: #2F4F4F; margin-bottom: 10px; }
+.seminar-card {
+    background: #eceeee;
+    border-left: 4px solid #2F4F4F;
+    padding: 14px 18px 4px;
+    margin: 0 0 36px;
+}
+.seminar-label { font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; color: #777; }
+.seminar-card h3 { font-size: 1.35rem; font-weight: 700; margin: 2px 0 6px; }
+.seminar-next { color: #444; }
+.post-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
+a.post-card, a.post-card:visited {
+    display: block;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-top: 3px solid #2F4F4F;
+    padding: 14px 16px;
+    color: #222;
+    text-decoration: none;
+    transition: box-shadow 0.15s, transform 0.15s;
+}
+a.post-card:hover { color: #222; text-decoration: none; box-shadow: 0 4px 12px rgba(0,0,0,0.12); transform: translateY(-2px); }
+.post-card-meta { display: block; font-size: 13px; color: #777; }
+.post-card-title { display: block; font-size: 1.15rem; font-weight: 700; margin: 4px 0 6px; color: darkblue; }
+.post-card-summary { display: block; color: #555; }
+@media (max-width: 700px) {
+    .trough-hero { flex-direction: column; align-items: stretch; }
+    .trough-figure { flex-basis: auto; max-width: 320px; }
+}
 .post { max-width: 46rem; line-height: 1.6; }
 .post-title { font-size: 1.7rem; font-weight: 700; margin-bottom: 4px; }
 .post-meta { color: #777; margin-bottom: 28px; }

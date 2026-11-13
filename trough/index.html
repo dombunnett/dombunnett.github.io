@@ -3,25 +3,46 @@ layout: default
 title: The Trough
 description: Dominic Bunnett — The Trough
 ---
-<h2>The Trough</h2>
-<p>Where the slop goes. Notes, write-ups and a seminar on what language models are doing to mathematics.</p>
+{%- assign today = site.time | date: "%Y%m%d" | plus: 0 -%}
+{%- assign talks = site.data.slop_talks | sort: "date", "last" -%}
+{%- assign next = false -%}
+{%- for talk in talks -%}
+    {%- assign d = talk.date | date: "%Y%m%d" | plus: 0 -%}
+    {%- if talk.date == nil or d >= today -%}{%- assign next = talk -%}{%- break -%}{%- endif -%}
+{%- endfor -%}
 
-<div class="seminar-box">
-    <h3>This Week in Slop</h3>
-    <p>A seminar at TU Berlin. Each session, someone presents one of the latest &lsquo;huge mathematical developments&rsquo; in an area close to our hearts, and we work out what has actually been done.</p>
-    <p><b>When and where:</b> to be announced.</p>
-    <p><a href="/theweekinslop/">Seminar page and announcement &rarr;</a></p>
-</div>
+<section class="trough-hero">
+    <figure class="trough-figure">
+        <img src="/trough/durer-prodigal-son.jpg" alt="Engraving detail: the Prodigal Son, hands clasped, kneeling among pigs at a trough">
+        <figcaption>Albrecht Dürer, <i>Der verlorene Sohn</i> (detail), c.&nbsp;1496, engraving. Alte Galerie, Universalmuseum Joanneum, Graz, Inv.&nbsp;AG.K.&nbsp;20.</figcaption>
+    </figure>
+    <div class="trough-intro">
+        <h1 class="trough-title">The Trough</h1>
+        <p class="trough-lede">Where the slop goes.</p>
+        <p>Notes, write-ups and a seminar on what language models are doing to mathematics.</p>
+    </div>
+</section>
+
+<section class="seminar-card">
+    <div class="seminar-label">Seminar</div>
+    <h3><a href="/theweekinslop/">This Week in Slop</a></h3>
+    <p>A seminar on the mathematics done by AI, organised with Rosa Preiss at TU Berlin.</p>
+    {%- if next %}
+    <p class="seminar-next"><b>Next:</b> {{ next.speaker }}, <i>{{ next.title }}</i>{% if next.date %} &middot; {{ next.date | date: "%-d %b %Y" }}{% else %} &middot; date to be announced{% endif %}</p>
+    {%- endif %}
+    <p><a href="/theweekinslop/">Seminar website &rarr;</a></p>
+</section>
 
 <h2>Posts</h2>
-<ul class="post-list">
+<div class="post-cards">
 {% for post in site.posts %}
-    <li>
-        <span class="post-date">{{ post.date | date: "%-d %b %Y" }}</span>
-        <a href="{{ post.url }}"><b>{{ post.title }}</b></a>
-        {% if post.description %}<span class="post-summary">{{ post.description }}</span>{% endif %}
-    </li>
+    {%- assign words = post.content | number_of_words -%}
+    <a class="post-card" href="{{ post.url }}">
+        <span class="post-card-meta">{{ post.date | date: "%-d %B %Y" }} &middot; {{ words | divided_by: 200 | at_least: 1 }} min read</span>
+        <span class="post-card-title">{{ post.title }}</span>
+        {% if post.description %}<span class="post-card-summary">{{ post.description }}</span>{% endif %}
+    </a>
 {% else %}
-    <li>No posts yet.</li>
+    <p>No posts yet.</p>
 {% endfor %}
-</ul>
+</div>
